@@ -1,5 +1,7 @@
 # rAIdio.bot Manual
 
+**Version 20260414_002**
+
 Quick reference for all features. For the full in-app help, press **F1** from any tab.
 
 > [rAIdio.bot on Steam](https://store.steampowered.com/app/4600000) · [System Requirements Check](https://github.com/rAIdio-bot/raidio-check/releases/latest/download/raidio-check.exe)
@@ -40,7 +42,7 @@ Not sure where to start? You have two options at the top of the Music tab:
 Both fill in the Tags, Caption, Lyrics, Duration, and BPM fields. You can edit any of them before generating, or just hit Generate and see what happens.
 
 ### Generating
-Click Generate to start. The first time is slow because the AI model needs to load into your GPU memory. After that, generation is much faster. Your song appears in the Assets panel on the left when it is done. Double-click it to play, or use the buttons to open it in the Editor, send it to the Mixer, or extract its stems.
+Click Generate to start. The first time is slow because the AI model needs to load into your GPU memory. After that, generation is much faster. Your song is saved as a lossless WAV file and appears in the Assets panel on the left when it is done. Double-click it to play, or use the buttons to open it in the Editor, send it to the Mixer, or extract its stems.
 
 ### Style Transfer
 Switch to Style Transfer mode when you have an existing song and want to create something new inspired by it. Load a reference track, describe the style you want, and adjust the Strength slider. Low strength keeps more of the original feel; high strength gives the AI more creative freedom.
@@ -280,6 +282,20 @@ The Licenses page lists every piece of open-source software that rAIdio.bot uses
 | F1 | Help (current tab) |
 | F2 | Rename selected asset |
 | Enter | Open selected asset |
+
+---
+
+---
+
+## Audio Quality
+
+rAIdio.bot is designed to preserve audio quality throughout the entire signal chain:
+
+- **Lossless generation** — Music is generated and saved as 16-bit WAV at 44.1 kHz. No lossy compression is applied to generated audio.
+- **High-quality resampling** — When your audio device runs at a different sample rate (e.g. 48 kHz), audio is resampled using a 256-tap sinc interpolation filter for transparent conversion with no audible artifacts.
+- **Transparent limiting** — The master output uses a threshold-based limiter that passes signals below 0 dB through untouched. Only peaks above the threshold are gently compressed to prevent harsh clipping.
+- **32-bit float processing** — All internal mixing, effects, and gain staging is performed in 32-bit floating point for maximum headroom.
+- **Export options** — Export your mixes as lossless WAV or MP3 (V0 VBR ~245 kbps via ffmpeg).
 
 ---
 
