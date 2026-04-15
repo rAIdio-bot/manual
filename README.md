@@ -1,6 +1,6 @@
 # rAIdio.bot Manual
 
-**Version 20260414_002**
+**Version 20260415_001**
 
 Quick reference for all features. For the full in-app help, press **F1** from any tab.
 
@@ -209,7 +209,7 @@ You can also add effects to individual clips: right-click a clip and choose **Ad
 Right-click a clip and choose **Loop for...** to fill a duration with tiled copies. Enter a target length in seconds and the clip is repeated end-to-end. All copies are independent, so you can edit or add effects to each one separately. Ctrl+Z undoes the entire loop in one step.
 
 ### Exporting
-When your mix sounds right, click **Export** to save it as a WAV or MP3 file. You can also export each channel as a separate stem file.
+When your mix sounds right, click **Export** to save it as WAV, MP3, OGG, or FLAC. You can also export each channel as a separate stem file.
 
 The export includes metadata about every track and effect used, plus content credentials proving you made it.
 
