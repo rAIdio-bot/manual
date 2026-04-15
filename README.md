@@ -4,7 +4,7 @@
 
 Quick reference for all features. For the full in-app help, press **F1** from any tab.
 
-> [rAIdio.bot on Steam](https://store.steampowered.com/app/4600000) · [System Requirements Check](https://github.com/rAIdio-bot/raidio-check/releases/latest/download/raidio-check.exe)
+> [rAIdio.bot on Steam](https://store.steampowered.com/app/4600000) · [System Requirements Check](https://github.com/rAIdio-bot/raidio-check/releases/latest/download/raidio-check.exe) · [Third-Party Notices](THIRD_PARTY_NOTICES.md)
 
 ---
 
