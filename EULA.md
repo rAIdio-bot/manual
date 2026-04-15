@@ -95,7 +95,7 @@ Termination of this Agreement does not affect your rights under any applicable O
 
 ## 11. Governing Law and Dispute Resolution
 
-This Agreement is governed by the laws of Germany, without regard to conflict of law principles. The UN Convention on Contracts for the International Sale of Goods does not apply. Any disputes shall be subject to the exclusive jurisdiction of the courts of Brandenburg an der Havel, Germany, except where mandatory consumer protection law in your jurisdiction requires otherwise.
+This Agreement is governed by the laws of Germany, without regard to conflict of law principles. The UN Convention on Contracts for the International Sale of Goods does not apply. Any disputes shall be subject to the exclusive jurisdiction of the courts of Berlin, Germany, except where mandatory consumer protection law in your jurisdiction requires otherwise.
 
 ## 12. Export Compliance
 
