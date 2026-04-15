@@ -6,7 +6,7 @@ Quick reference for all features. For the full in-app help, press **F1** from an
 
 > [rAIdio.bot on Steam](https://store.steampowered.com/app/4600000) · [System Requirements Check](https://github.com/rAIdio-bot/raidio-check/releases/latest/download/raidio-check.exe)
 >
-> [EULA](EULA.md) · [Privacy Policy](PRIVACY.md) · [Content Policy](CONTENT_POLICY.md) · [Third-Party Notices](THIRD_PARTY_NOTICES.md)
+> [EULA](EULA.md) · [Privacy Policy](PRIVACY.md) · [Content Policy](CONTENT_POLICY.md) · [Third-Party Notices](THIRD_PARTY_NOTICES.md) · [EU AI Act](EU_AI_ACT.md)
 
 ---
 
