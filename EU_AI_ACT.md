@@ -170,4 +170,4 @@ For questions about AI systems, training data, or EU AI Act compliance:
 
 ---
 
-*Creative Mayhem UG — Brandenburg an der Havel, Germany*
+*Creative Mayhem UG — Berlin, Germany*
