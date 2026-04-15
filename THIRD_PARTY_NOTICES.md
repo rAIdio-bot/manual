@@ -10,7 +10,7 @@ This product includes open-source software components. Each component is subject
 
 | Component | License | Source |
 |-----------|---------|--------|
-| rAIdio.bot application (Rust/Tauri/Svelte) | Proprietary | Copyright (c) 2025-2026 Creative Mayhem UG |
+| rAIdio.bot application (Rust/Tauri/Svelte) | Proprietary | Copyright (c) 2025-2026 Christopher Neitzert and Creative Mayhem UG |
 | rAIdio_nodes (SaveAudioWAV) | Apache 2.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
 | ComfyUI-ChordMidi (ChordDetect, MidiTranscribe) | Apache 2.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
 | 00_rAIdio_rvc_patch | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
