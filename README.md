@@ -98,7 +98,20 @@ There are two ways to do it:
 
 **The quick way (Voice Clone):** Record a short clip of yourself speaking (even 10–30 seconds works). Switch to Voice Clone mode, load your recording, type what you want to say, and click Generate. You get results in seconds. The voice will sound like you, but it is an approximation.
 
-**The best way (Voice Train):** Record yourself speaking clearly for at least 5 minutes (more is better). Switch to Advanced mode and open Voice Train. Load your recordings, name your model, and click Train. Training takes many hours, even on a fast GPU. When it finishes, your model appears in Custom Voice as `[Trained]`. The quality difference is significant.
+**The best way (Voice Train):** Gather clean recordings of your voice — at least 5 minutes, ideally 30+ minutes across many clips. Switch to Advanced mode, open Voice Train, check **Train from directory**, and select your folder of recordings. Name your model, set epochs to 150–300, and click Generate Speech.
+
+Training time depends on data size and epochs:
+- **50 epochs** (~1 hour): Usable but rough — good for testing
+- **150 epochs** (~2–3 hours): Good quality for most uses
+- **300–500 epochs** (~4–8 hours): High fidelity voice reproduction
+
+**Batch Size** (default 8): Higher values train faster but use more VRAM. Reduce to 4 if training crashes.
+
+**Sample Rate** (default 48000): Higher captures more voice detail. Use 48000 unless your source audio is low quality.
+
+When training finishes, your model appears as `[Trained]` in Custom Voice and Voice Convert. An index file is automatically generated and used during inference for higher quality speaker matching. You can delete bad models with the Delete button next to the voice dropdown.
+
+**Tips for best results:** Clean, isolated speech recordings produce the best models. Podcast audio, voiceovers, and audiobook readings work great. Avoid noisy environments, phone calls, and recordings with music in the background.
 
 Start with Voice Clone to hear your voice right away. If you like the result and want it to be better, invest the time in training.
 
