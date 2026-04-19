@@ -16,6 +16,8 @@ The Software is licensed, not sold. The developer retains all rights, title, and
 
 Audio, music, and other content you create using the Software is yours. The developer claims no ownership over your output. You are solely responsible for ensuring your use of the Software, and any content you input into it, does not infringe the rights of third parties.
 
+You agree to indemnify, defend, and hold harmless the developer and its affiliates from and against any third-party claim, demand, proceeding, damage, loss, liability, cost, or expense (including reasonable attorneys' fees) arising out of or resulting from (a) content you create, modify, record, clone, train on, or distribute using the Software; (b) any false or misleading consent attestation you provide through the Software; (c) your violation of any intellectual property right, right of publicity, right of privacy, data protection right, or other applicable law; or (d) your breach of this Agreement or the Content Policy. This indemnity does not extend to claims arising from the developer's own intentional misconduct or gross negligence, and nothing in this Section limits your statutory consumer rights under applicable law.
+
 ## 4. AI-Generated Content and Provenance
 
 The Software incorporates AI models. Where content is generated or processed by AI components:

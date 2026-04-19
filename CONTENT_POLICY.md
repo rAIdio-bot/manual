@@ -31,6 +31,8 @@ You must:
 
 Consent obtained under duress, deception, or without full understanding of the intended use does not satisfy these requirements.
 
+If the voice you are cloning, converting, or training on is your own, you may proceed without third-party consent. By submitting audio to the Software's voice features and completing the consent attestation, you affirm that every voice present in that audio is either (a) your own voice, or (b) covered by explicit, informed, and documented permission you have obtained from each voice owner. You remain solely responsible for producing that documentation if your authorization is challenged.
+
 ---
 
 ## 4. Music, Copyright, and Third-Party Material
