@@ -95,7 +95,11 @@ Termination of this Agreement does not affect your rights under any applicable O
 
 ## 11. Governing Law and Dispute Resolution
 
-This Agreement is governed by the laws of Germany, without regard to conflict of law principles. The UN Convention on Contracts for the International Sale of Goods does not apply. Any disputes shall be subject to the exclusive jurisdiction of the courts of Berlin, Germany, except where mandatory consumer protection law in your jurisdiction requires otherwise.
+This Agreement is governed by the laws of the Federal Republic of Germany, without regard to conflict of law principles. The UN Convention on Contracts for the International Sale of Goods (CISG) does not apply.
+
+Any claim or dispute arising out of or in connection with this Agreement, its subject matter, or its formation (including non-contractual claims) shall be brought exclusively before the Landgericht Berlin (Berlin Regional Court) and shall be conducted in accordance with the German Code of Civil Procedure (Zivilprozessordnung, ZPO). Service of process shall be governed by German procedural rules and applicable international service conventions. Claims must be filed within the limitation periods prescribed by German law.
+
+This exclusive forum selection does not override mandatory protective jurisdiction afforded to consumers. If you are a consumer as defined in Article 17 of Regulation (EU) No 1215/2012 (the Brussels I Recast Regulation), you retain the right to bring proceedings in the courts of your country of domicile, and proceedings may be brought against you only in those courts; your statutory consumer rights are unaffected by this Section 11.
 
 ## 12. Export Compliance
 
