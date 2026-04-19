@@ -1,6 +1,6 @@
 # Content Policy
 
-**Last updated: April 11, 2026**
+**Last updated: April 20, 2026**
 
 ---
 
