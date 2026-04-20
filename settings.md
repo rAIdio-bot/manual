@@ -33,7 +33,7 @@ The Licenses page lists every piece of open-source software that rAIdio.bot uses
 
 ### Provenance and C2PA
 
-C2PA (Coalition for Content Provenance and Authenticity) is an open standard for content credentials, adopted by Adobe, Microsoft, and major camera manufacturers.
+C2PA (Coalition for Content Provenance and Authenticity) is an open standard for content credentials, backed by Adobe, Microsoft, and major digital camera manufacturers.
 
 rAIdio.bot signs every output with C2PA content credentials using ES256 (ECDSA with P-256) certificates. The signature is a tamper-evident record that documents:
 

@@ -67,7 +67,7 @@ Every file created by rAIdio.bot can carry a C2PA (Coalition for Content Provena
 - The creator's identity (as provided by the user)
 - The full chain of tools and transformations applied
 
-C2PA is the same open standard adopted by Adobe, Microsoft, the BBC, and major camera manufacturers. It provides machine-readable disclosure of AI-generated content as contemplated by Article 50(2) of the EU AI Act.
+C2PA is the same open standard backed by Adobe, Microsoft, the BBC, and major digital camera manufacturers. It provides machine-readable disclosure of AI-generated content as contemplated by Article 50(2) of the EU AI Act.
 
 ### User Control
 
