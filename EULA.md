@@ -118,3 +118,7 @@ This Agreement, together with the Third-Party Notices file, constitutes the enti
 ## 15. Contact
 
 info@rAIdio.bot
+
+---
+
+© 2026 Creative Mayhem UG (haftungsbeschränkt). rAIdio.bot® is a registered trademark. AI-generated audio outputs carry C2PA provenance metadata. All other trademarks are property of their respective owners.

@@ -171,3 +171,5 @@ For questions about AI systems, training data, or EU AI Act compliance:
 ---
 
 *Creative Mayhem UG — Berlin, Germany*
+
+© 2026 Creative Mayhem UG (haftungsbeschränkt). rAIdio.bot® is a registered trademark. AI-generated audio outputs carry C2PA provenance metadata. All other trademarks are property of their respective owners.

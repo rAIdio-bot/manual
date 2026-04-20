@@ -103,3 +103,7 @@ If you become aware of misuse of the Software, contact: info@rAIdio.bot
 ## 12. Changes to This Policy
 
 If we update this Content Policy, changes will be distributed with Software updates and noted in the changelog. Continued use of the Software after a policy update constitutes acceptance of the revised terms.
+
+---
+
+© 2026 Creative Mayhem UG (haftungsbeschränkt). rAIdio.bot® is a registered trademark. AI-generated audio outputs carry C2PA provenance metadata. All other trademarks are property of their respective owners.

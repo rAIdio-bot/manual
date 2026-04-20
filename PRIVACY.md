@@ -78,3 +78,7 @@ If we change this policy in a way that involves collecting data we do not curren
 ## 11. Contact
 
 info@rAIdio.bot
+
+---
+
+© 2026 Creative Mayhem UG (haftungsbeschränkt). rAIdio.bot® is a registered trademark. AI-generated audio outputs carry C2PA provenance metadata. All other trademarks are property of their respective owners.
