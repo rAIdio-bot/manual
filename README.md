@@ -311,6 +311,8 @@ Right-click any video file and choose **Generate Soundtrack**. rAIdio.bot analyz
 
 Requires Ollama running locally with qwen2.5:3b. If Ollama is not available, the dialogue is skipped and you get direct analysis results.
 
+Install Ollama from [ollama.com](https://ollama.com), then run `ollama pull qwen2.5:3b` once (~2 GB download).
+
 *For advanced controls, open the `Play` section in the app (F1 → Settings → Manual → Advanced), or read [play.md](play.md).*
 
 ---
