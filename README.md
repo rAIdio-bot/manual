@@ -1,6 +1,6 @@
 ﻿# rAIdio.bot Manual
 
-**Version 20260427 (April 27, 2026 — build 4c46f67)**
+**Version 20260427 (April 27, 2026 — build 4c46f67)-dirty**
 
 _System requirements: Windows 10/11 x64 &middot; NVIDIA GPU with 16 GB VRAM minimum (24 GB+ for XL model) &middot; 32 GB RAM recommended &middot; 80 GB free disk._
 

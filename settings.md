@@ -64,7 +64,7 @@ The Licenses page is a Software Bill of Materials (SBOM) viewer. It lists every 
 
 Use the search field to filter by name or license type. The summary shows the total dependency count and a breakdown by license category.
 
-This data is loaded from sbom_licenses.json.
+The full machine-readable SBOM (CycloneDX) is also published per release at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom) for OSPO ingestion.
 
 ### Global Keyboard Shortcuts
 
