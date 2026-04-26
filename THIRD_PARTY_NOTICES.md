@@ -1,8 +1,8 @@
 # rAIdio.bot — Third-Party Notices
 
-**Version 20260426**
+**Version 20260427**
 
-This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 803 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
+This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 805 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
 
 ---
 
@@ -43,7 +43,7 @@ Full GPL-3.0 text: <https://www.gnu.org/licenses/gpl-3.0.html>
 |-----------|-------------|--------|
 | ComfyUI_ACE-Step | ACE-Step ComfyUI integration | [billwuhao/ComfyUI_ACE-Step](https://github.com/billwuhao/ComfyUI_ACE-Step) |
 | ACE-Step 1.5 model weights | Generative music model (Standard + XL) | [ace-step/ACE-Step](https://github.com/ace-step/ACE-Step) |
-| Qwen3-TTS model weights | Text-to-speech (all variants) | Alibaba Cloud |
+| Qwen3-TTS model weights | Text-to-speech (all variants) | [QwenLM/Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS) |
 | Spotify basic-pitch | Audio-to-MIDI transcription (ONNX) | [spotify/basic-pitch](https://github.com/spotify/basic-pitch) |
 | RMVPE | Pitch extraction model | [Dream-High/RMVPE](https://github.com/Dream-High/RMVPE) |
 | OpenCV (C++ runtime, embedded in opencv-python-headless wheel) | Computer vision library | [opencv/opencv](https://github.com/opencv/opencv) |
@@ -90,14 +90,15 @@ Full Apache 2.0 text: <https://www.apache.org/licenses/LICENSE-2.0>
 |-----------|---------|--------|
 | Python (CPython, embedded) | PSF License | [python.org](https://www.python.org) |
 | Symphonia | MPL-2.0 | [pdeljanov/Symphonia](https://github.com/pdeljanov/Symphonia) |
-| soundfile / libsndfile | BSD-3-Clause / LGPL-2.1 | — |
+| soundfile (Python wrapper) | BSD-3-Clause | [memescreamer/python-soundfile](https://github.com/memescreamer/python-soundfile/tree/0.13.1) |
+| libsndfile (C library, bundled in soundfile wheel) | LGPL-2.1 | [memescreamer/libsndfile](https://github.com/memescreamer/libsndfile/tree/1.2.2) |
 | 7-Zip | LGPL-2.1 / BSD-3-Clause | [7-zip.org](https://www.7-zip.org) |
 
 ---
 
 ## Full Component List
 
-The complete list of **803 components** with versions, licenses, and homepage URLs is available:
+The complete list of **805 components** with versions, licenses, and homepage URLs is available:
 
 - **In-app**: Settings > Licenses
 - **Online (per release)**: [github.com/rAIdio-bot/sbom/releases](https://github.com/rAIdio-bot/sbom)

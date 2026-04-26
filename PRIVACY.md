@@ -1,8 +1,16 @@
 # Privacy Policy
 
-**Last updated: April 11, 2026**
+**Last updated: April 27, 2026**
 
 We are pro-privacy. rAIdio.bot collects absolutely no information about you. None. This policy exists to tell you exactly what that means and to document the narrow cases where third-party infrastructure is involved.
+
+Today, no exceptions. The narrow cases we may add in future builds (and only if you opt in):
+
+- Update checks (version string only, no IP logging)
+- Crash reporting (stack trace, no audio/prompts/output)
+- License validation pings (license-key only)
+
+We will never collect audio, prompts, or generated content.
 
 ## 1. Local-First Design
 
