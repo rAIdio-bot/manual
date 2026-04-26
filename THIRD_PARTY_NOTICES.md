@@ -81,6 +81,7 @@ Full Apache 2.0 text: <https://www.apache.org/licenses/LICENSE-2.0>
 | WaveSurfer.js | Waveform visualization | [katspaugh/wavesurfer.js](https://github.com/katspaugh/wavesurfer.js) |
 | PyTorch / torchaudio | ML framework | [pytorch.org](https://pytorch.org) |
 | torchcodec | Audio codec wrapper | [pytorch/torchcodec](https://github.com/pytorch/torchcodec) |
+| soundfile (Python wrapper) | Audio file I/O — Python bindings (ships libsndfile binary inside the wheel; see LGPL row below) | [memescreamer/python-soundfile](https://github.com/memescreamer/python-soundfile/tree/0.13.1) |
 
 ---
 
@@ -90,7 +91,6 @@ Full Apache 2.0 text: <https://www.apache.org/licenses/LICENSE-2.0>
 |-----------|---------|--------|
 | Python (CPython, embedded) | PSF License | [python.org](https://www.python.org) |
 | Symphonia | MPL-2.0 | [pdeljanov/Symphonia](https://github.com/pdeljanov/Symphonia) |
-| soundfile (Python wrapper) | BSD-3-Clause | [memescreamer/python-soundfile](https://github.com/memescreamer/python-soundfile/tree/0.13.1) |
 | libsndfile (C library, bundled in soundfile wheel) | LGPL-2.1 | [memescreamer/libsndfile](https://github.com/memescreamer/libsndfile/tree/1.2.2) |
 | 7-Zip | LGPL-2.1 / BSD-3-Clause | [7-zip.org](https://www.7-zip.org) |
 
