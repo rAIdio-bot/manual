@@ -91,4 +91,6 @@ Right-click a video file and choose Generate Soundtrack.
 
 If Ollama is not running, the dialogue is skipped and analysis results are used directly.
 
+Install Ollama from <https://ollama.com>, then run `ollama pull qwen2.5:3b` once (~2 GB download).
+
 BPM is clamped to 60-200 by default (locked). Unlock for higher values, but generation quality may decrease above 200 BPM.
