@@ -1,8 +1,8 @@
 # rAIdio.bot — Third-Party Notices
 
-**Version 20260427**
+**Version 20260430**
 
-This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 805 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
+This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 807 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
 
 ---
 
@@ -18,6 +18,7 @@ This product includes open-source software components. Each component is subject
 | 00_rAIdio_safe_load_patch | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
 | rAIdio_whisper_patch | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
 | rAIdio_xl_patch (RaidioXLLoader) | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
+| rAIdio_aimdo_reset | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
 
 ---
 
@@ -28,6 +29,7 @@ The following components are licensed under GPL-3.0. They run as separate proces
 | Component | Description | Source |
 |-----------|-------------|--------|
 | ComfyUI | AI inference backend | [comfyanonymous/ComfyUI](https://github.com/comfyanonymous/ComfyUI) |
+| comfy-aimdo | GPU memory dynamic offloader for ComfyUI (native lib in python_embeded) | [Comfy-Org/comfy-aimdo](https://github.com/Comfy-Org/comfy-aimdo) |
 | ComfyUI-QwenTTS | Qwen3-TTS ComfyUI integration | [1038lab/ComfyUI-QwenTTS](https://github.com/1038lab/ComfyUI-QwenTTS) |
 | SeedVC-ComfyUI | Seed-VC voice conversion node — wraps Seed-VC (GPL-3.0) and is distributed under GPL-3.0 by inheritance | [AIFSH/SeedVC-ComfyUI](https://github.com/AIFSH/SeedVC-ComfyUI) |
 | Seed-VC | Zero-shot voice conversion model | [Plachtaa/seed-vc](https://github.com/Plachtaa/seed-vc) |
@@ -98,7 +100,7 @@ Full Apache 2.0 text: <https://www.apache.org/licenses/LICENSE-2.0>
 
 ## Full Component List
 
-The complete list of **805 components** with versions, licenses, and homepage URLs is available:
+The complete list of **807 components** with versions, licenses, and homepage URLs is available:
 
 - **In-app**: Settings > Licenses
 - **Online (per release)**: [github.com/rAIdio-bot/sbom/releases](https://github.com/rAIdio-bot/sbom)

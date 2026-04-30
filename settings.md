@@ -12,6 +12,12 @@ Your name, email, website, and organization are embedded in every file you creat
 
 Your display name defaults to your computer username. Change it to whatever you want to be credited as.
 
+### Backend
+
+The local AI engine that runs all your music, voice, and analysis work on your GPU. The status indicator in the bottom-left corner shows whether it's running.
+
+If a long mixed-mode session ever stops working — usually after 30+ generations of mixed Music / Voice / Stem work — click **Force Restart Backend** in Settings → AI Models, or click **Restart Backend** when it appears next to the status dot. The restart takes about 30 seconds and doesn't lose any saved work.
+
 ### Licenses
 
 The Licenses page lists every piece of open-source software that rAIdio.bot uses, along with each one's license type. This is here for transparency: you can see exactly what powers the app.
@@ -43,7 +49,7 @@ rAIdio.bot signs every output with C2PA content credentials using ES256 (ECDSA w
 4. That the models were trained on licensed/public domain data
 5. The tool that produced the output (rAIdio.bot + version)
 
-Signatures are embedded in WAV file headers where possible. For formats that do not support embedded metadata (MP3), the signature is stored in the JSON sidecar file.
+Signatures are embedded in WAV file headers where possible. For formats that do not support embedded metadata (MP3), the signature is stored in a binary `.c2pa` sidecar file alongside the audio. FLAC, OGG, and Opus exports use a JSON sidecar (`<file>.c2pa.json`) — same ES256 cert chain as the embedded path, but our custom JSON shape rather than the JUMBF binary format that Adobe's Content Credentials Verify expects. To verify these files, use the in-app Properties dialog or the open-source verifier in the [sbom repo](https://github.com/rAIdio-bot/sbom).
 
 The C2PA toggle in Settings controls whether signing is active. The status indicator shows: Ready (certificates found), Error (signing failed), or Missing Certs (certificates not yet generated).
 
@@ -58,6 +64,17 @@ Fields embedded in every asset's JSON sidecar and C2PA signature:
 - Organization/Label: Optional. E.g., your record label or studio name.
 
 All fields are stored in settings and persist across sessions.
+
+### Backend
+
+rAIdio.bot's AI engine is a child ComfyUI process that runs on your GPU. After many model loads / unloads in one session, GPU virtual-address-space can fragment (most visible on RTX 30/40-series cards) and the next prompt fails with a `VBAR allocation failed` error.
+
+rAIdio.bot proactively defragments the address space after every 15 successful generations, so most users never see this. When the proactive reset isn't enough, two recovery paths are available:
+
+- **Settings → AI Models → Force Restart Backend** — on-demand full restart, 30 seconds, no saved work lost.
+- **Restart Backend** button next to the status dot — appears automatically after 3 consecutive workflow failures (or immediately on a `VBAR allocation failed` error). Same restart action, one-click access.
+
+Both go through the same `restart_backend` Tauri command (shutdown + start), which rebuilds the ComfyUI HTTP client and the WebSocket event bridge. Models reload on the first generation after restart.
 
 ### Licenses (SBOM)
 The Licenses page is a Software Bill of Materials (SBOM) viewer. It lists every dependency: ComfyUI core, all custom nodes, Python packages, and their license types.

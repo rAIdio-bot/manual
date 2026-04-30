@@ -39,15 +39,15 @@ Start with Voice Clone to hear your voice right away. If you like the result and
 
 ### Voice Consent & Provenance
 
-When using someone else's voice (Clone, Conversion, or Training), rAIdio.bot requires you to:
+When using someone else's voice (Clone, Conversion, or Training), rAIdio.bot invites you to document:
 
-1. **Enter the voice owner's name** (or "myself" if it's your own voice)
-2. **State the intended use** (e.g. "podcast intro", "personal project")
-3. **Check the attestation box** confirming you have permission
+1. **Voice owner's name** (or "myself" if it's your own voice)
+2. **Intended use** (e.g. "podcast intro", "personal project")
+3. **Consent note** indicating you have permission
 
 This consent record is embedded in the **C2PA provenance signature** of every generated audio file. It creates a verifiable audit trail linking each voice clone to a consent attestation with a timestamp. If someone misuses the tool, this record establishes that they attested to having permission.
 
-The consent data is stored locally in the audio file's metadata — it is never transmitted to any server.
+The consent data is stored locally in the audio file's metadata — it is never transmitted to any server. A future version of rAIdio.bot will offer an opt-in setting to refuse playback of unsigned or tampered voice models.
 
 **Ctrl+Enter**: Start generating from anywhere on this tab.
 
