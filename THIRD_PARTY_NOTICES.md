@@ -1,8 +1,8 @@
 # rAIdio.bot — Third-Party Notices
 
-**Version 20260501**
+**Version 20260502**
 
-This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 814 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
+This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 815 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
 
 ---
 
@@ -23,6 +23,7 @@ This product includes open-source software components. Each component is subject
 | zz_rAIdio_rvc_loadaudio_alias | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
 | zz_rAIdio_rvc_infer_audio_fix | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
 | zz_rAIdio_rvc_train_dir_fix | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
+| zz_rAIdio_rvc_train_quote_fix | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
 | _python_embeded_overrides/sitecustomize.py | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
 | _python_embeded_overrides/fairseq | GPL-3.0 | [rAIdio-nodes](https://github.com/rAIdio-bot/rAIdio-nodes) |
 
