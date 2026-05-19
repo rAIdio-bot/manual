@@ -1,6 +1,6 @@
 # End-User License Agreement
 
-**Last updated: April 20, 2026**
+**Last updated: May 19, 2026**
 
 IMPORTANT: Read this End-User License Agreement ("Agreement") carefully before using rAIdio.bot ("the Software"). By installing or using the Software, you agree to be bound by its terms. If you do not agree, do not install or use the Software.
 
@@ -70,6 +70,8 @@ You may not:
 - Use the Software to build a substantially similar competing product
 - Circumvent or disable any license enforcement, DRM, or telemetry mechanisms in the Software
 - Use the Software in violation of any applicable law or regulation, including export control laws
+- Use the Software to infringe rights of third parties; especially you may not clone or otherwise reproduce (i) copyrighted material without a license or a legal justification and/or (ii) the voice of any person without their consent or a legal justification.
+- Use the Software to create otherwise deceptive, misleading, defamatory or harmful synthetic media.
 
 ## 7. Updates and Modifications
 
