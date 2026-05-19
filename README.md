@@ -1,6 +1,6 @@
 ﻿# rAIdio.bot Manual
 
-**Version 20260501 (May 1, 2026 — build 613df33)-dirty**
+**Version 20260519 (May 19, 2026 — build a104d86)-dirty**
 
 _System requirements: Windows 10/11 x64 &middot; NVIDIA GPU with 16 GB VRAM minimum (24 GB+ for XL model) &middot; 32 GB RAM recommended &middot; 80 GB free disk._
 
@@ -92,11 +92,11 @@ The simplest mode. Pick a speaker from the list (Aiden, Serena, Dylan, and other
 
 #### Custom Voice
 
-Use any voice you have saved or trained. The dropdown shows three types of voices:
+Use any voice you have saved. The dropdown shows three types of voices:
 
 - **Built-in speakers** — The same voices available in Text to Speech.
-- **Saved voices** — Voices you created with Voice Clone and saved.
-- **Trained models** — Shown with `[Trained]` prefix. These are custom voice models you trained from your own recordings. They produce the highest quality and most consistent results.
+- **Saved voices** — Shown with `[Saved]` prefix. Voices you created with Voice Clone and saved with the "Save as reusable voice" option. Same engine and quality as Voice Clone but persistent across sessions.
+- **Trained models** *(legacy)* — Shown with `[Trained]` prefix if you have any imported or pre-existing RVC `.pth` files in your library. RVC is a voice converter, not a voice cloner — chained through TTS it inherits the base speaker's pitch. The `[Trained]` route is retained for back-compat. **Use Saved Voices for TTS use cases**; use Voice Conversion mode to transform existing vocal recordings (singer-swap).
 
 #### Voice Conversion
 
@@ -109,15 +109,17 @@ Use the Pitch Shift slider if you are changing between male and female voices: +
 Load any audio or video file and get a text transcription. The text is saved alongside the file and powers the timed lyrics display in the Play tab. If your file has music in the background, turn on **Isolate Vocals** for much better accuracy.
 
 #### Clone Your Voice
-Want the AI to speak in your voice? There are two ways to do it:
+Want the AI to speak in your voice? Two paths, same engine:
 
-**The quick way (Voice Clone):** Record a short clip of yourself speaking (even 10–30 seconds works). Switch to Voice Clone mode, load your recording, type what you want to say, and click Generate. You get results in seconds. The voice will sound like you, but it is an approximation.
+**Once (Voice Clone):** Record a short clip of yourself speaking (even 10–30 seconds works). Switch to Voice Clone mode, load your recording, type what you want to say, and click Generate. You get results in seconds. Good for one-off generations.
 
-**The best way (Voice Train):** Gather clean recordings of your voice — at least 5 minutes, ideally 30+ minutes across many clips. Switch to Advanced mode, open Voice Train, check **Train from directory**, and select your folder of recordings. Name your model, set epochs to 150–300, and click Generate Speech. Training takes 1–3 hours depending on data size. When it finishes, your model appears as `[Trained]` in Custom Voice and Voice Convert.
+**Reusable (Voice Clone + Save):** In Voice Clone mode, check **Save as reusable voice (signed)** and give the voice a name before clicking Generate. The cloned voice is persisted as a signed `.pt` file. From then on, pick `[Saved] <name>` from Custom Voice mode's dropdown to speak any text in that voice — no need to re-load the reference clip every time. Same engine, same quality, just persistent across sessions.
 
-The more clean speech data you provide, the better the clone. Podcast recordings, voiceovers, and audiobook readings work great. Avoid noisy recordings.
+**What "clean" means:** one speaker, no music, no heavy reverb, recorded with the same microphone in a quiet room. The clone captures whatever is in your audio — room tone, mic colour, background noise — so consistency matters more than total minutes.
 
-Start with Voice Clone to hear your voice right away. If you like the result and want it to be better, invest the time in training.
+**How much is enough?** A clean 10–30 second reference clip is plenty for Voice Clone. Longer is fine but doesn't help much past about a minute — the cloning engine extracts a speaker prompt, not a fine-tune.
+
+Start with Voice Clone to hear it. When you have one you like, repeat with **Save as reusable voice** checked to pin it for future generations.
 
 #### Voice Consent & Provenance
 
@@ -341,7 +343,17 @@ If a long mixed-mode session ever stops working — usually after 30+ generation
 
 The Licenses page lists every piece of open-source software that rAIdio.bot uses, along with each one's license type. This is here for transparency: you can see exactly what powers the app.
 
+#### DLC
+
+The About page shows which DLCs you have installed via Steam. The rAIdio.bot XL Model DLC is included free with rAIdio.bot — if your GPU has 24 GB or more of VRAM, Steam will offer to install it the first time you launch the game. Owning it unlocks the "XL High Quality" option in the Music tab.
+
+If you chose not to install the DLC during the Steam install, About will show "Not installed" with a "Get on Steam" button. Click it to open the DLC's Steam page where you can mark it for install.
+
 #### Global Keyboard Shortcuts
+
+These work everywhere — any tab, while focus is not in a text field.
+
+**Navigation**
 
 | Shortcut | Action |
 |----------|--------|
@@ -353,6 +365,19 @@ The Licenses page lists every piece of open-source software that rAIdio.bot uses
 | F1 | Help (current tab) |
 | F2 | Rename selected asset |
 | Enter | Open selected asset |
+
+**Transport (works whenever audio is loaded for playback — Mix, Edit, Play tab, or any preview)**
+
+| Shortcut | Action |
+|----------|--------|
+| Space | Play / Pause |
+| ← / → | Seek back / forward 1 second |
+| Shift + ← / → | Seek back / forward 5 seconds |
+| Home | Jump to start |
+| End | Jump to end |
+| J | Skip back 5 seconds |
+| K | Stop |
+| L | Skip forward 5 seconds |
 
 *For advanced controls, open the `Settings` section in the app (F1 → Settings → Manual → Advanced), or read [settings.md](settings.md).*
 
@@ -380,7 +405,7 @@ Export your mixes as lossless WAV or MP3 (V0 VBR ~245 kbps via ffmpeg).
 
 ---
 
-*Generated by tools/publish_manual.ps1 from rAIdio.bot-rust@613df33.*
+*Generated by tools/publish_manual.ps1 from rAIdio.bot-rust@a104d86.*
 
 ---
 

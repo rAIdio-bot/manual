@@ -10,11 +10,11 @@ The simplest mode. Pick a speaker from the list (Aiden, Serena, Dylan, and other
 
 ### Custom Voice
 
-Use any voice you have saved or trained. The dropdown shows three types of voices:
+Use any voice you have saved. The dropdown shows three types of voices:
 
 - **Built-in speakers** — The same voices available in Text to Speech.
-- **Saved voices** — Voices you created with Voice Clone and saved.
-- **Trained models** — Shown with `[Trained]` prefix. These are custom voice models you trained from your own recordings. They produce the highest quality and most consistent results.
+- **Saved voices** — Shown with `[Saved]` prefix. Voices you created with Voice Clone and saved with the "Save as reusable voice" option. Same engine and quality as Voice Clone but persistent across sessions.
+- **Trained models** *(legacy)* — Shown with `[Trained]` prefix if you have any imported or pre-existing RVC `.pth` files in your library. RVC is a voice converter, not a voice cloner — chained through TTS it inherits the base speaker's pitch. The `[Trained]` route is retained for back-compat. **Use Saved Voices for TTS use cases**; use Voice Conversion mode to transform existing vocal recordings (singer-swap).
 
 ### Voice Conversion
 
@@ -27,15 +27,17 @@ Use the Pitch Shift slider if you are changing between male and female voices: +
 Load any audio or video file and get a text transcription. The text is saved alongside the file and powers the timed lyrics display in the Play tab. If your file has music in the background, turn on **Isolate Vocals** for much better accuracy.
 
 ### Clone Your Voice
-Want the AI to speak in your voice? There are two ways to do it:
+Want the AI to speak in your voice? Two paths, same engine:
 
-**The quick way (Voice Clone):** Record a short clip of yourself speaking (even 10–30 seconds works). Switch to Voice Clone mode, load your recording, type what you want to say, and click Generate. You get results in seconds. The voice will sound like you, but it is an approximation.
+**Once (Voice Clone):** Record a short clip of yourself speaking (even 10–30 seconds works). Switch to Voice Clone mode, load your recording, type what you want to say, and click Generate. You get results in seconds. Good for one-off generations.
 
-**The best way (Voice Train):** Gather clean recordings of your voice — at least 5 minutes, ideally 30+ minutes across many clips. Switch to Advanced mode, open Voice Train, check **Train from directory**, and select your folder of recordings. Name your model, set epochs to 150–300, and click Generate Speech. Training takes 1–3 hours depending on data size. When it finishes, your model appears as `[Trained]` in Custom Voice and Voice Convert.
+**Reusable (Voice Clone + Save):** In Voice Clone mode, check **Save as reusable voice (signed)** and give the voice a name before clicking Generate. The cloned voice is persisted as a signed `.pt` file. From then on, pick `[Saved] <name>` from Custom Voice mode's dropdown to speak any text in that voice — no need to re-load the reference clip every time. Same engine, same quality, just persistent across sessions.
 
-The more clean speech data you provide, the better the clone. Podcast recordings, voiceovers, and audiobook readings work great. Avoid noisy recordings.
+**What "clean" means:** one speaker, no music, no heavy reverb, recorded with the same microphone in a quiet room. The clone captures whatever is in your audio — room tone, mic colour, background noise — so consistency matters more than total minutes.
 
-Start with Voice Clone to hear your voice right away. If you like the result and want it to be better, invest the time in training.
+**How much is enough?** A clean 10–30 second reference clip is plenty for Voice Clone. Longer is fine but doesn't help much past about a minute — the cloning engine extracts a speaker prompt, not a fine-tune.
+
+Start with Voice Clone to hear it. When you have one you like, repeat with **Save as reusable voice** checked to pin it for future generations.
 
 ### Voice Consent & Provenance
 
@@ -85,7 +87,7 @@ Reference Text: What the speaker says in the clip. Providing accurate text impro
 
 Target Text: What you want the cloned voice to say.
 
-The clone is a one-shot approximation. For higher quality and consistency, train a dedicated model using Voice Train.
+Save as reusable voice (signed): Optional. When checked, supply a Voice Name and the cloned voice prompt is persisted as a `.pt` file in `Library/qwen3-tts_voices/`. The voice is signed with your consent attestation using the same provenance contract used for trained RVC models — embedded in the `.pt`'s archive plus a `.consent.json` sidecar. Saved voices appear in the Custom Voice dropdown as `[Saved] <name>` and can be reused for any future TTS without re-loading the reference clip. This is the recommended path to "personalise a voice for TTS" — same engine and quality as Voice Clone, but persistent across sessions.
 
 ### Custom Voice
 
@@ -93,9 +95,9 @@ Unified voice selector combining all available voices:
 
 Built-in speakers: Standard Qwen3-TTS voices. Route to standard TTS.
 
-Saved voices: CosyVoice embeddings from Voice Clone, stored in models/voices/. Route to custom voice TTS.
+Saved voices: Persistent voice prompts created from Voice Clone via the "Save as reusable voice" option. Stored as `.pt` files in `Library/qwen3-tts_voices/`. Routed to the Qwen3-TTS voice-clone engine — same engine that produces Voice Clone output, just loaded from the saved prompt instead of a fresh reference clip. Captures both timbre and prosody.
 
-Trained models: RVC .pth files from Voice Train, shown with [Trained] prefix. Route to a chained TTS+RVC workflow: Qwen3-TTS generates speech with a base speaker, then RVC rewrites the voice characteristics using the trained model. This produces the highest quality output.
+Trained models: RVC `.pth` files (legacy / imported), shown with `[Trained]` prefix. RVC is a voice converter, not a voice cloner — chained through TTS it inherits the base speaker's pitch, so the trained voice's natural pitch is lost. The `[Trained]` route in Custom Voice exists for back-compat with existing .pth files. For TTS use cases, use Saved Voices instead. For converting an existing vocal recording (e.g. a singer-swap), use Voice Conversion mode.
 
 ### Voice Conversion: Trained Model (RVC)
 
@@ -103,7 +105,7 @@ Convert a vocal recording using a trained RVC model.
 
 Source Audio: An isolated vocal stem works best. Full mixes with background music cause artifacts.
 
-Target Voice: A [Trained] .pth model from Voice Train. The app automatically finds and uses the matching .index file (generated during training) for higher quality speaker-specific matching.
+Target Voice: A `[Trained]` .pth model in your library, or a `[Saved]` voice from Voice Clone (which routes through SeedVC zero-shot mode using the saved reference clip). For .pth files, the app automatically finds and uses the matching .index file for higher quality speaker-specific matching.
 
 Index Rate: 0 to 1.0. Controls timbre matching via the index file. Higher values match the trained voice more closely.
 
@@ -127,31 +129,18 @@ Pitch Shift: Same as RVC mode.
 
 First use downloads SeedVC models from HuggingFace (~1-3 GB).
 
-### Voice Train
-Train a reusable RVC voice model from recordings. A trained model produces faster, more consistent, and higher quality results than Voice Clone because the model has learned the voice deeply from many samples.
+### Using Your Own Voice
+Two paths, same engine — pick based on whether you'll re-use the voice:
 
-Training Audio: 5+ minutes of clean voice audio (10+ minutes recommended, 30+ ideal). Use 'Train from directory' to load a folder of clips — the more clean speech data, the better the result. Silent files and background noise degrade quality.
+**One-off (Voice Clone):** Provide a 10–30 second reference recording, type your text, click Generate. The AI extracts a speaker prompt and synthesizes the target text in that voice. Captures both timbre and prosody. Reference clip stays only for this generation.
 
-Model Name: Alphanumeric characters, dots, dashes, and underscores only.
+**Reusable (Voice Clone + Save):** Same flow, but check **Save as reusable voice (signed)** and give the voice a name before generating. The cloned voice is persisted as a signed `.pt` file in `Library/qwen3-tts_voices/`. From then on, pick `[Saved] <name>` from Custom Voice mode's dropdown to speak any new text in that voice — no need to re-load the reference clip every time. Same engine, same quality, just persistent across sessions.
 
-Epochs: 50 to 500. At 50 epochs you get a usable but rough voice. 100-200 produces good quality. 300-500 for high fidelity. Over-training can cause artifacts — if quality degrades, use a lower epoch checkpoint.
+**Reference clip quality:** A clean 10–30 second clip is plenty. Past about a minute, more reference doesn't materially improve the clone — the engine extracts a speaker prompt, not a fine-tune. What matters is **consistency**: one speaker, no music or background noise, no heavy reverb, recorded with the same microphone in a quiet room. The clone captures whatever is in your reference, so room tone and mic colour follow through.
 
-Batch Size: 2 to 16 (default 8). Higher values train faster and more stably but use more VRAM. If training crashes with out-of-memory errors, reduce batch size.
+**Saved voice signing:** when you save a voice, the consent attestation you fill in (voice owner's name, intended use, attestation checkbox) is embedded into the `.pt` file's archive plus written as a `.consent.json` sidecar. Every audio file generated from that saved voice carries a C2PA assertion chained to that attestation, signed by your install's certificate — a verifiable provenance trail back to "the user who saved this voice attested to having permission for this use."
 
-Sample Rate: 48000 (default, recommended) or 40000. Higher captures more voice detail.
-
-Training time depends on data size and epochs. With ~500 clips at 150 epochs: roughly 2-3 hours on a modern GPU. 50 epochs takes about 1 hour. The progress overlay stays visible until training completes.
-
-After training, the model (.pth) and its index file (.index) appear in Custom Voice and Voice Conversion immediately. The index file significantly improves voice quality by matching speaker-specific features. You can delete bad models with the Delete button next to the voice dropdown.
-
-Tip: Clean, isolated speech recordings produce the best models. Podcast audio, voiceovers, and audiobook readings work well. Phone calls, noisy environments, and music in the background produce poor models.
-
-### Using Your Own Voice: Two Paths
-Voice Clone (zero-shot): Provide a single recording and get results immediately. The AI approximates your voice from one sample. Quality is reasonable for short text but degrades on longer output: the voice may drift, lose characteristic detail, or sound generic. This is a one-shot inference with no learning; the model sees your voice once and does its best.
-
-Voice Train (trained model): Provide 5+ minutes of recordings and wait 12-24 hours. The AI builds a dedicated model of your voice by learning from hundreds of samples across your recordings. The result is dramatically better: consistent timbre across any text, natural inflection, and reliable output even on long passages. The trained .pth model can be used in both Custom Voice (TTS) and Voice Conversion (singing).
-
-Recommendation: Use Voice Clone to test whether the voice pipeline works for your use case. If it does, train a model for production quality. The trained model will always outperform the zero-shot clone.
+**Managing saved voices:** Pick a saved voice in Custom Voice mode to see its signature badge ("Signed by you" / "Signed (imported)" / "Unsigned" / "Tampered"). The Delete Voice button removes the `.pt` + sidecar + the reference clip used for SeedVC voice conversion.
 
 ### Transcribe
 

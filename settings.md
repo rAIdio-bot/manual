@@ -22,7 +22,17 @@ If a long mixed-mode session ever stops working — usually after 30+ generation
 
 The Licenses page lists every piece of open-source software that rAIdio.bot uses, along with each one's license type. This is here for transparency: you can see exactly what powers the app.
 
+### DLC
+
+The About page shows which DLCs you have installed via Steam. The rAIdio.bot XL Model DLC is included free with rAIdio.bot — if your GPU has 24 GB or more of VRAM, Steam will offer to install it the first time you launch the game. Owning it unlocks the "XL High Quality" option in the Music tab.
+
+If you chose not to install the DLC during the Steam install, About will show "Not installed" with a "Get on Steam" button. Click it to open the DLC's Steam page where you can mark it for install.
+
 ### Global Keyboard Shortcuts
+
+These work everywhere — any tab, while focus is not in a text field.
+
+**Navigation**
 
 | Shortcut | Action |
 |----------|--------|
@@ -34,6 +44,19 @@ The Licenses page lists every piece of open-source software that rAIdio.bot uses
 | F1 | Help (current tab) |
 | F2 | Rename selected asset |
 | Enter | Open selected asset |
+
+**Transport (works whenever audio is loaded for playback — Mix, Edit, Play tab, or any preview)**
+
+| Shortcut | Action |
+|----------|--------|
+| Space | Play / Pause |
+| ← / → | Seek back / forward 1 second |
+| Shift + ← / → | Seek back / forward 5 seconds |
+| Home | Jump to start |
+| End | Jump to end |
+| J | Skip back 5 seconds |
+| K | Stop |
+| L | Skip forward 5 seconds |
 
 ## Advanced
 
@@ -76,12 +99,46 @@ rAIdio.bot proactively defragments the address space after every 15 successful g
 
 Both go through the same `restart_backend` Tauri command (shutdown + start), which rebuilds the ComfyUI HTTP client and the WebSocket event bridge. Models reload on the first generation after restart.
 
+### Uninstalling rAIdio.bot
+
+Steam's uninstall removes the application and the AI backend it shipped, but **leaves a few runtime files behind** that the app created during normal use (custom-node modifications, partially-downloaded archives, the ComfyUI runtime's `output/` / `input/` / `temp/` / `user/` directories, voice training intermediate files). Steam only removes what it tracked in its depot manifest; anything created at runtime stays.
+
+After uninstalling via Steam, if you want to fully reclaim disk space, manually delete:
+
+```
+C:\Program Files (x86)\Steam\steamapps\common\rAIdio.bot\
+```
+
+(if your Steam library is on a different drive, adjust the prefix). This may free 1-25 GB depending on how much you used the app — most of it is the ComfyUI `Backend\` directory.
+
+**Your generated content survives the uninstall.** Your library, projects, playlists, saved voices, trained models, signing certificate, and settings live in:
+
+```
+C:\Users\<You>\AppData\Local\rAIdio.bot\
+```
+
+This is intentional — reinstalling the app picks up where you left off. If you want a **completely clean wipe** (e.g., before transferring the machine to someone else), also delete that directory. Note that deleting the `c2pa\` subfolder of your AppData root invalidates the signing certificate that proves your prior outputs are yours — back it up first if you might want to verify your prior tracks later.
+
+### Windows SmartScreen on first launch
+
+On some Windows configurations the first launch of rAIdio.bot from outside Steam (e.g., running the executable directly from the install folder) triggers a "Windows protected your PC" SmartScreen warning. This is expected: the binary is currently unsigned because Authenticode EV signing is on the roadmap rather than in this release. Click "More info" and then "Run anyway" if you trust the source. To verify integrity, compare your installed `raidio-bot.exe` SHA-256 against the published hash for the current release at [`github.com/rAIdio-bot/sbom`](https://github.com/rAIdio-bot/sbom) — the recipe is in that repo's README under "Verify your install". Launches from Steam itself do not trigger SmartScreen because Steam's installer is signed.
+
 ### Licenses (SBOM)
 The Licenses page is a Software Bill of Materials (SBOM) viewer. It lists every dependency: ComfyUI core, all custom nodes, Python packages, and their license types.
 
 Use the search field to filter by name or license type. The summary shows the total dependency count and a breakdown by license category.
 
-The full machine-readable SBOM (CycloneDX) is also published per release at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom) for OSPO ingestion.
+The full machine-readable SBOM (CycloneDX) is also published per release at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom) for OSPO ingestion. Each component carries a `com.raidio.depot` property tagging which Steam depot it ships in (app, AI content, or a DLC depot) so OSPO tooling can scope analysis to a specific install variant.
+
+### DLC
+
+DLC ownership is queried once at app launch via the Steamworks `BIsDlcInstalled` API. `src-tauri/src/steam.rs` enumerates `KNOWN_DLC_APP_IDS`, asks Steam for each, and stores the resulting `Vec<u32>` on `AppState`. Three Tauri commands answer queries from that cache: `list_owned_dlcs`, `is_dlc_installed`, `open_dlc_store_page`.
+
+The Steamworks `Client` instance is `!Send + !Sync` in the version we ship, so it cannot live across the Tokio runtime — we query while we have it in `lib::run()` and drop it the same way the app did before the DLC harness existed. The trade-off: mid-session DLC installs and uninstalls are not detected. To pick up a DLC purchased during a session, restart the app. This matches Steam-game convention.
+
+Current DLCs:
+
+- **rAIdio.bot XL Model for 24GB GPU or Larger** (AppID 4655860, depot 4611720). Free with the base game. The XL model is hardware-gated at the workflow layer (Music tab "XL High Quality (20+ GB VRAM)" option) rather than DLC-entitlement-gated — anyone whose hardware can run it does, regardless of whether the DLC license is registered on their Steam account. The DLC harness records ownership for visibility and for future DLCs that may use harder gating.
 
 ### Global Keyboard Shortcuts
 
