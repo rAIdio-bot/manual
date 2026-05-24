@@ -1,31 +1,62 @@
 # EU AI Act Transparency Statement
 
-**Last updated: April 15, 2026**
-**Regulation (EU) 2024/1689 — Artificial Intelligence Act**
+**Last updated: May 24, 2026**
+**Regulation (EU) 2024/1689 — Artificial Intelligence Act, as amended by the AI Omnibus (Council ST-9247-2026-INIT, 13 May 2026)**
 
 Creative Mayhem UG ("the developer") publishes this transparency statement in accordance with the EU AI Act to provide clear, accessible information about the AI systems incorporated in rAIdio.bot ("the Software").
 
 ---
 
-## 1. AI Systems Overview
+## 1. AI Systems Overview and Classification
 
 rAIdio.bot incorporates the following AI systems. All systems run entirely on the user's local hardware. No AI processing occurs on remote servers.
 
-| AI System | Function | Model Architecture | License |
-|-----------|----------|-------------------|---------|
-| ACE-Step 1.5 | Music generation from text | Diffusion transformer (3.5B / 5B params) | Apache 2.0 |
-| ACE-Step 1.5 XL | Higher-quality music generation | Diffusion transformer (5B params) | Apache 2.0 |
-| Qwen3-TTS | Text-to-speech synthesis | Autoregressive transformer (0.6B / 1.7B params) | Apache 2.0 |
-| Seed-VC | Voice conversion | DiT + wavenet vocoder | MIT |
-| RVC | Retrieval-based voice conversion | HuBERT + pitch extraction | MIT |
-| Meta Demucs | Audio source separation (stems) | Hybrid transformer/waveform U-Net | MIT |
-| OpenAI Whisper | Speech-to-text transcription | Encoder-decoder transformer | MIT |
-| Spotify basic-pitch | Audio-to-MIDI transcription | Neural network (ONNX) | Apache 2.0 |
-| BigVGAN v2 | Neural vocoder (waveform synthesis) | GAN | MIT |
-| CAMPPlus | Speaker embedding / verification | CNN | MIT |
-| RMVPE | Pitch extraction | CNN | MIT |
+| AI System | Function | Architecture | License | Classification |
+|-----------|----------|--------------|---------|----------------|
+| ACE-Step 1.5 | Music generation from text | Diffusion transformer (3.5B / 5B params) | Apache 2.0 | Potentially GPAI |
+| ACE-Step 1.5 XL | Higher-quality music generation | Diffusion transformer (5B params) | Apache 2.0 | Potentially GPAI |
+| Qwen3-TTS | Text-to-speech synthesis | Autoregressive transformer (0.6B / 1.7B params) | Apache 2.0 | Narrow-task |
+| Seed-VC | Voice conversion | DiT + wavenet vocoder | MIT | Narrow-task |
+| RVC | Retrieval-based voice conversion | HuBERT + pitch extraction | MIT | Narrow-task |
+| Meta Demucs | Audio source separation (stems) | Hybrid transformer/waveform U-Net | MIT | Narrow-task |
+| OpenAI Whisper | Speech-to-text transcription | Encoder-decoder transformer | MIT | Narrow-task |
+| Spotify basic-pitch | Audio-to-MIDI transcription | Neural network (ONNX) | Apache 2.0 | Narrow-task |
+| BigVGAN v2 | Neural vocoder (waveform synthesis) | GAN | MIT | Component (not standalone) |
+| CAMPPlus | Speaker embedding / verification | CNN | MIT | Narrow-task |
+| RMVPE | Pitch extraction | CNN | MIT | Narrow-task |
 
-**Risk classification:** All AI systems in the Software fall under the general-purpose AI (GPAI) category. None constitute high-risk AI systems as defined in Annex III of the Regulation. The Software does not perform biometric identification, social scoring, emotion recognition for enforcement purposes, or any prohibited practice under Article 5.
+**Classification notes:**
+
+- *ACE-Step 1.5 / XL* may meet the variety-of-tasks test for general-purpose AI (GPAI) under Article 3(63) of Regulation (EU) 2024/1689 because they can generate music across a wide range of styles and structures from free-form natural-language prompts. We do not independently verify whether the upstream training compute reached the 10²³ FLOP presumption threshold under Article 51(2); that determination rests with the upstream model provider (ACE-Studio / StepFun).
+- All other bundled models perform a single, narrowly defined task (transcription, separation, pitch extraction, voice conversion, etc.) and do not meet the variety-of-tasks test for GPAI.
+
+### 1.1. System provider vs model provider
+
+rAIdio.bot is an **AI system provider**, not a GPAI **model provider**. We integrate pre-trained third-party models (listed above) into a system; we do not train GPAI models, fine-tune them at scale, or place GPAI models on the Union market.
+
+The GPAI obligations in Articles 53–55 of Regulation (EU) 2024/1689 apply to model providers. They are therefore not directly applicable to Creative Mayhem UG. ACE-Step's potential GPAI status would place its upstream providers (ACE-Studio / StepFun) under those obligations, not us.
+
+### 1.2. Not a high-risk AI system
+
+rAIdio.bot is not a high-risk AI system. It does not implement any of the use cases enumerated in Annex III of Regulation (EU) 2024/1689: no biometric identification or categorisation, no education access or grading, no employment screening or performance evaluation, no creditworthiness or essential-services scoring, no law-enforcement or border-control use, no administration-of-justice or democratic-process use. It is also not covered by Annex I (it is not a safety component of any regulated product).
+
+Accordingly, the obligations of Chapter III of Regulation (EU) 2024/1689 (Sections 1, 2 and 3) do not apply.
+
+### 1.3. Article 5 prohibited practices
+
+The Software does not implement any of the practices prohibited under Article 5, including biometric categorisation for sensitive inferences, real-time remote biometric identification, social scoring, or emotion recognition in the workplace or educational settings.
+
+The AI Omnibus introduces two additional prohibitions, applicable from 2 December 2026:
+
+- **Article 5(1a)** — AI systems that generate or manipulate non-consensual intimate material.
+- **Article 5(1b)** — AI systems that generate or manipulate child sexual abuse material.
+
+rAIdio.bot is not intended for either purpose. For systems where such generation is not intended, recital (6b) of the Omnibus requires "reasonable and adequate technical safety measures and other safeguards" against reasonably foreseeable misuse. The Software's safeguards include:
+
+- **Usage restrictions.** EULA §4 and Content Policy §3 and §6 prohibit generating sexual content involving minors, non-consensual sexual content, deepfakes intended to deceive or harm, and voice cloning without documented consent from the voice owner.
+- **Output controls.** Every audio output is signed with C2PA Content Credentials identifying it as AI-generated (see §3 below). Signing is mandatory and cannot be disabled.
+- **Abuse detection (voice).** A cryptographic voice-consent verifier in the Voice panel checks every loaded `.pth` voice model against an embedded ES256 signature and the consent attestation recorded at training time. Unsigned or tampered models are flagged.
+- **Notice and action.** The in-app crash-and-bug submission flow includes explicit abuse-report routing to chris@neitzert.com.
 
 ---
 
@@ -55,11 +86,11 @@ Meta Demucs is trained on the MUSDB18 dataset (licensed for research) and additi
 
 ---
 
-## 3. AI-Generated Content Marking
+## 3. AI-Generated Content Marking (Article 50(2))
 
-### C2PA Content Credentials
+### Mandatory C2PA signing
 
-Every file created by rAIdio.bot can carry a C2PA (Coalition for Content Provenance and Authenticity) content credential — a cryptographically signed, tamper-evident record that documents:
+Every audio file created by rAIdio.bot carries a C2PA (Coalition for Content Provenance and Authenticity) content credential — a cryptographically signed, tamper-evident record that documents:
 
 - That the content was created with rAIdio.bot
 - Which AI model was used to generate or process it
@@ -67,14 +98,17 @@ Every file created by rAIdio.bot can carry a C2PA (Coalition for Content Provena
 - The creator's identity (as provided by the user)
 - The full chain of tools and transformations applied
 
-C2PA is the same open standard backed by Adobe, Microsoft, the BBC, and major digital camera manufacturers. It provides machine-readable disclosure of AI-generated content as contemplated by Article 50(2) of the EU AI Act.
+C2PA is the same open standard backed by Adobe, Microsoft, the BBC, and major digital camera manufacturers. The European Commission's Draft Code of Practice on AI transparency identifies C2PA as a satisfactory mechanism for compliance with Article 50(2) of Regulation (EU) 2024/1689.
 
-### User Control
+**Signing is mandatory and cannot be disabled.** This satisfies Article 50(2)'s machine-readable-marking obligation directly, rather than relying on the user to opt in.
 
-- C2PA signing is enabled by default and can be disabled by the user in Settings > Provenance
-- Users control what identity information (name, email, URL) is embedded in credentials
-- Users may use pseudonyms or leave identity fields blank
-- The developer strongly recommends keeping C2PA enabled
+### Compliance deadline
+
+Article 50(2) compliance deadline for rAIdio.bot is **2 December 2026** under Article 111(4) as inserted by the AI Omnibus (Council ST-9247-2026-INIT, 13 May 2026), because our first placement on the Union market is scheduled before 2 August 2026 and the Omnibus provides a four-month transitional period for providers in that position.
+
+### User identity in credentials
+
+Users control what identity information (name, email, URL, organisation) is embedded in credentials at sign-up time and via Settings → Identity. Users may use pseudonyms or leave optional identity fields blank; the signing certificate itself is per-install and self-issued.
 
 ---
 
@@ -116,7 +150,7 @@ This design satisfies the data minimization principle under GDPR Article 5(1)(c)
 
 ### Voice Consent
 
-The Software requires users to acknowledge consent requirements before using voice cloning or conversion features. The consent dialogue appears each session and cannot be permanently dismissed.
+The Software requires users to acknowledge consent requirements before using voice cloning or conversion features. The consent dialogue appears each session and cannot be permanently dismissed. In addition, a cryptographic verifier checks every loaded voice model (`.pth`) against an embedded ES256 signature and the consent attestation recorded at training time; the Voice panel surfaces Signed / Unsigned / Tampered / Invalid status for each model.
 
 ### Content Policy
 
@@ -124,11 +158,13 @@ The [Content Policy](CONTENT_POLICY.md) prohibits:
 - Creating deepfakes intended to deceive or harm
 - Non-consensual voice cloning
 - Impersonation of real individuals
+- Generation of sexual content involving minors
+- Generation of non-consensual intimate content
 - Circumventing platform detection systems
 
 ### Disclosure Support
 
-C2PA content credentials provide the machine-readable AI disclosure mechanism anticipated by Article 50 of the EU AI Act. Platforms and tools that support C2PA can automatically detect and label AI-generated content created with rAIdio.bot.
+C2PA content credentials provide the machine-readable AI disclosure mechanism anticipated by Article 50(2). Platforms and tools that support C2PA can automatically detect and label AI-generated content created with rAIdio.bot.
 
 ---
 
@@ -150,15 +186,19 @@ All AI inference runs on the user's local GPU. The developer does not operate da
 
 ---
 
-## 9. Ongoing Compliance
+## 9. Applicable Dates
 
-The developer monitors the implementation timeline of the EU AI Act and will update this statement and the Software's documentation as specific obligations come into force. Key dates:
+The dates below reflect the AI Omnibus amendments (Council ST-9247-2026-INIT, 13 May 2026) to Regulation (EU) 2024/1689.
 
-- **February 2, 2025**: Prohibited practices provisions apply
-- **August 2, 2025**: GPAI model obligations apply
-- **August 2, 2026**: Full application of remaining provisions
+- **2 February 2025** — Article 5 prohibitions in force. The new Article 5(1a) (non-consensual intimate material) and 5(1b) (CSAM) prohibitions apply from 2 December 2026.
+- **2 August 2025** — GPAI model provider obligations (Articles 53–55) applicable to *new* GPAI models placed on the Union market. Existing models: until 2 August 2027. *Not directly applicable to rAIdio.bot — we are a system provider, not a model provider.*
+- **2 August 2026** — Article 50 transparency obligations apply to providers placing AI systems on the market on or after this date.
+- **2 December 2026** — Article 50(2) compliance deadline for providers who placed systems on the market before 2 August 2026 (four-month grace per amended Article 111(4)). **rAIdio.bot target.**
+- **2 December 2026** — New Article 5(1a) and 5(1b) prohibitions apply.
+- **2 December 2027** — Chapter III high-risk obligations apply to Annex III systems. *Not applicable to rAIdio.bot (we are not a high-risk system).*
+- **2 August 2028** — Chapter III high-risk obligations apply to Annex I systems. *Not applicable to rAIdio.bot.*
 
-The developer commits to maintaining compliance with all applicable provisions as they take effect.
+The developer commits to maintaining compliance with all applicable provisions as they take effect, and will update this statement when further amendments or implementing acts are adopted.
 
 ---
 
@@ -167,6 +207,14 @@ The developer commits to maintaining compliance with all applicable provisions a
 For questions about AI systems, training data, or EU AI Act compliance:
 
 **info@rAIdio.bot**
+
+---
+
+## Sources
+
+- Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 (Artificial Intelligence Act). ELI: http://data.europa.eu/eli/reg/2024/1689/oj
+- Council document ST-9247-2026-INIT, 13 May 2026 (Proposal for a Regulation amending Regulations (EU) 2024/1689 and (EU) 2018/1139 — the "Digital Omnibus on AI", 2025/0359 (COD)). https://data.consilium.europa.eu/doc/document/ST-9247-2026-INIT/en/pdf
+- Legal review by JBViniol Rechtsanwälte (Dr. Lisa Käde), 22 May 2026.
 
 ---
 
