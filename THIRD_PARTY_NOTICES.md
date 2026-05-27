@@ -1,8 +1,32 @@
 # rAIdio.bot — Third-Party Notices
 
-**Version 20260502**
+**Version 20260527**
 
-This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 815 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
+This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 1,039 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
+
+---
+
+## Distribution form
+
+For more information about copyright and licensing, please refer to the source files included in this distribution.
+
+---
+
+## Written offer for source code
+
+rAIdio.bot contains software components that are licensed by the copyright holders as Free Software or Open Source software under the GNU General Public License, version 2 and/or 3, and/or GNU Lesser General Public License, version 2.1 and/or 3.0. Anyone can obtain the source code for these software components from us on a data carrier (e.g. USB memory stick). This offer is valid within three years after the most recent conveyance of the object code by us, and valid for as long as we offer spare parts or customer support for the respective product. Please send your request to the following email address `legal@creativemayhem.com` or via regular mail to the following address:
+
+> Creative Mayhem UG (haftungsbeschränkt)  
+> Attn: Source Request — rAIdio.bot  
+> Alte Jakobstrasse 92  
+> 10179 Berlin Germany
+
+Please specify the address to which you wish us to send the source code. Additional product information (e.g. version number) will help us to identify the corresponding source code for you. The source code will be sent to the given address after reimbursement of the expenses actually incurred for providing the data carrier and shipping.
+
+As a convenience, the corresponding source code for the components under licenses requiring source code availability is also available without charge at:
+
+- <https://github.com/memescreamer/> — Creative Mayhem UG's vendor mirror of the upstream FOSS components used in rAIdio.bot.
+- <https://github.com/rAIdio-bot/rAIdio-nodes> — Creative Mayhem UG's own GPL-3.0 patches authored for rAIdio.bot.
 
 ---
 
