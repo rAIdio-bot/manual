@@ -1,9 +1,7 @@
-# Private local-only files that must never be committed to this public
-# repo. The `.wav` originals, the .docx/.pdf dist formats, and the
-# ACE-Step prompt-writing book all live under
-# `C:\Users\Administrator\rAIdio-private\` on the maintainer's machine
-# and are published via different channels (MP3 demos are committed;
-# raw WAV originals and dist formats are not).
+# Private local-only files that must never be committed to this
+# public repo. The `.wav` originals and the .docx/.pdf dist formats
+# are published via different channels (MP3 demos are committed; raw
+# WAV originals and dist formats are not).
 
 # Lossless audio originals — only MP3 demos are published.
 *.wav
@@ -12,9 +10,6 @@
 # builds are local artefacts only.
 *.docx
 *.pdf
-
-# Drafts kept private until launch.
-writing-prompts-*.md
 
 # Editor / OS cruft
 .vscode/
