@@ -188,8 +188,8 @@ Text inside parentheses gets sung as backing vocal lines. Use this to layer harm
 
 ```
 [chorus]
-Spinning in the Saturday sun (Saturday sun)
-Call it lucky, call it gold (call it gold)
+Walking through the empty square (empty square)
+Holding nothing, going nowhere (nowhere, nowhere)
 ```
 
 The vocalist will render the parenthetical as a separate harmony layer underneath the main line. This is the documented way to get backing vocals without writing a separate vocal arrangement.
@@ -199,8 +199,8 @@ The vocalist will render the parenthetical as a separate harmony layer underneat
 You can control vocal length and pronunciation phonetically. Want a sustained "oh"? Write "ooooh" or "oh-oh-oh". Want a held belt note on "yeah"? Write "yeaaaaaah". Want a specific vowel sound on a vague word? Spell it phonetically.
 
 ```
-Yeaaaah, I'm spinning (spinning, spinning)
-Oooh-oh-oh, in the Saturday sun
+Yeaaaah, I'm fading (fading, fading)
+Oooh-oh-oh, into the evening light
 ```
 
 The model treats repeated vowels as longer notes and uses the exact spelling to pick the pronunciation. This pairs well with the BPM tag — if your tempo and vowel-length signals agree, phrasing locks in.
@@ -250,11 +250,11 @@ Tags: indie pop, female vocal, bright, acoustic guitar, 118 BPM
 Caption: Bright indie pop with strummed acoustic guitar, claps, electric piano, and a clear female lead vocal. Warm, open, Saturday afternoon, long fade out.
 Lyrics:
 [verse]
-Woke up late, coffee cold
-Missed the train, told you so
+Tuesday morning, traffic slow
+Nothing on the radio
 [chorus]
-Call it lucky, call it gold
-Spinning in the Saturday sun
+Three more blocks until the light
+Three more blocks until I know
 [outro]
 ```
 
