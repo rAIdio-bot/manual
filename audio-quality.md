@@ -6,7 +6,7 @@ Music is generated and saved as 16-bit WAV at 44.1 kHz. No lossy compression is 
 
 ### Clean playback
 
-When your audio device runs at a different sample rate (e.g. 48 kHz), audio is resampled using a 256-tap sinc interpolation filter. The conversion is transparent with no audible artifacts.
+When your audio device runs at a different sample rate than a track — for example a 96 kHz optical/S-PDIF or high-resolution DAC output playing 44.1 kHz music — audio is converted to your device's rate with a high-quality sinc filter. The conversion is transparent, with no audible artifacts, and is prepared when the file loads so playback itself stays perfectly smooth.
 
 ### No brick-wall clipping
 
@@ -28,7 +28,12 @@ Music is generated and saved as lossless 16-bit WAV at 44.1 kHz. No lossy compre
 
 ### Resampling
 
-When your audio device runs at a different sample rate (e.g. 48 kHz), audio is resampled using a 256-tap sinc interpolation filter for transparent conversion with no audible artifacts.
+When your audio device's native sample rate differs from a track's, audio is converted to the device rate with a high-quality sinc interpolation filter: 256 taps, a Blackman-Harris window, 256x oversampling, and 64-bit internal precision. The heavy oversampling is what keeps the conversion transparent even at large ratios — for example up-sampling 44.1 kHz material to a 96 kHz optical/S-PDIF or high-resolution DAC output — with no aliasing and no audible artifacts.
+
+Two things follow from this design:
+
+- **Quality.** The filter is deliberately high-order, and the conversion is identical whether you play to a basic 48 kHz output or a high-end 96 kHz path — so what reaches your DAC is a faithful reconstruction of the source.
+- **Playback performance.** The conversion runs once, when a file is loaded, and never during playback. The real-time playback engine does not resample, so playback stays glitch-free and perfectly timed on any output device. The trade-off is a brief one-time preparation as a file opens: most files are instant, while a very long track played to a high output rate (for example an hour-plus to a 96 kHz device) can take a few moments to prepare.
 
 ### Transparent limiting
 
