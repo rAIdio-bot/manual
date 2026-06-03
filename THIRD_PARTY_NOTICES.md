@@ -1,8 +1,8 @@
 # rAIdio.bot — Third-Party Notices
 
-**Version 20260527**
+**Version 20260603**
 
-This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 1,039 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
+This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 996 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
 
 ---
 
@@ -64,7 +64,6 @@ The following components are licensed under GPL-3.0. They run as separate proces
 | ComfyUI-QwenTTS | Qwen3-TTS ComfyUI integration | [1038lab/ComfyUI-QwenTTS](https://github.com/1038lab/ComfyUI-QwenTTS) |
 | SeedVC-ComfyUI | Seed-VC voice conversion node — wraps Seed-VC (GPL-3.0) and is distributed under GPL-3.0 by inheritance | [AIFSH/SeedVC-ComfyUI](https://github.com/AIFSH/SeedVC-ComfyUI) |
 | Seed-VC | Zero-shot voice conversion model | [Plachtaa/seed-vc](https://github.com/Plachtaa/seed-vc) |
-| ffmpeg | Multimedia framework (static build, GPL-3.0-or-later effective via `--enable-gpl --enable-version3` and bundled GPL libraries) | [ffmpeg.org](https://ffmpeg.org) |
 
 Full GPL-3.0 text: <https://www.gnu.org/licenses/gpl-3.0.html>
 
@@ -115,6 +114,8 @@ Full Apache 2.0 text: <https://www.apache.org/licenses/LICENSE-2.0>
 | PyTorch / torchaudio | ML framework | [pytorch.org](https://pytorch.org) |
 | torchcodec | Audio codec wrapper | [pytorch/torchcodec](https://github.com/pytorch/torchcodec) |
 | soundfile (Python wrapper) | Audio file I/O — Python bindings (ships libsndfile binary inside the wheel; see LGPL row below) | [memescreamer/python-soundfile](https://github.com/memescreamer/python-soundfile/tree/0.13.1) |
+| libvorbis / libogg (statically linked in ffmpeg) | Ogg Vorbis codec + container | [xiph.org/vorbis](https://xiph.org/vorbis/) |
+| opus (statically linked in ffmpeg) | Opus audio codec | [opus-codec.org](https://opus-codec.org/) |
 
 ---
 
@@ -124,6 +125,9 @@ Full Apache 2.0 text: <https://www.apache.org/licenses/LICENSE-2.0>
 |-----------|---------|--------|
 | Python (CPython, embedded) | PSF License | [python.org](https://www.python.org) |
 | Symphonia | MPL-2.0 | [pdeljanov/Symphonia](https://github.com/pdeljanov/Symphonia) |
+| ffmpeg | LGPL-2.1-or-later — our own minimal **audio-only** build (no `--enable-gpl`/`--enable-version3`; no patent-encumbered video encoders). Runs as a separate process; the proprietary Rust binary does not link it. | [ffmpeg.org](https://ffmpeg.org) |
+| LAME / libmp3lame (statically linked in ffmpeg) | LGPL-2.0-or-later | [lame.sourceforge.io](https://lame.sourceforge.io/) |
+| zlib (statically linked in ffmpeg) | Zlib | [zlib.net](https://zlib.net) |
 | libsndfile (C library, bundled in soundfile wheel) | LGPL-2.1 | [memescreamer/libsndfile](https://github.com/memescreamer/libsndfile/tree/1.2.2) |
 | 7-Zip | LGPL-2.1 / BSD-3-Clause | [7-zip.org](https://www.7-zip.org) |
 
@@ -131,7 +135,7 @@ Full Apache 2.0 text: <https://www.apache.org/licenses/LICENSE-2.0>
 
 ## Full Component List
 
-The complete list of **807 components** with versions, licenses, and homepage URLs is available:
+The complete list of **996 components** with versions, licenses, and homepage URLs is available:
 
 - **In-app**: Settings > Licenses
 - **Online (per release)**: [github.com/rAIdio-bot/sbom/releases](https://github.com/rAIdio-bot/sbom)
