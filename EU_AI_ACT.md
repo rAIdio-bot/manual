@@ -1,6 +1,6 @@
 # EU AI Act Transparency Statement
 
-**Last updated: May 24, 2026**
+**Last updated: June 7, 2026**
 **Regulation (EU) 2024/1689 — Artificial Intelligence Act, as amended by the AI Omnibus (Council ST-9247-2026-INIT, 13 May 2026)**
 
 Creative Mayhem UG ("the developer") publishes this transparency statement in accordance with the EU AI Act to provide clear, accessible information about the AI systems incorporated in rAIdio.bot ("the Software").
@@ -102,6 +102,16 @@ C2PA is the same open standard backed by Adobe, Microsoft, the BBC, and major di
 
 **Signing is mandatory and cannot be disabled.** This satisfies Article 50(2)'s machine-readable-marking obligation directly, rather than relying on the user to opt in.
 
+### In-signal neural watermarking (multi-layer marking)
+
+In addition to the C2PA metadata layer, every AI-generated audio output carries an inaudible neural watermark embedded directly in the audio signal (SilentCipher, an open-source method released by Sony under the MIT licence). Where a C2PA credential is metadata that can be stripped when a file is re-encoded or re-uploaded, the in-signal watermark is carried by the audio samples themselves and survives common transformations (format conversion, MP3/FLAC encoding, resampling).
+
+The two layers together — cryptographic C2PA credentials and an in-signal watermark — implement the multi-layer marking approach that the European Commission's Draft Code of Practice on AI transparency describes as best practice for Article 50(2), going beyond metadata alone.
+
+The watermark is applied only to AI-generated output (music and synthetic speech). Audio that the user imports, or that is otherwise not AI-generated, is not watermarked, so the mark is never falsely asserted on a user's own material. The file Properties view in the application displays both layers — C2PA status and watermark detection — so a user, or a downstream platform, can verify the provenance of any file.
+
+A neural watermark is a high-confidence indicator of AI origin, not a cryptographic proof: like all in-signal watermarks it can be degraded by deliberate adversarial processing or heavy neural recompression. It complements, and does not replace, the C2PA credential. Together they provide defence-in-depth for AI-content disclosure.
+
 ### Compliance deadline
 
 Article 50(2) compliance deadline for rAIdio.bot is **2 December 2026** under Article 111(4) as inserted by the AI Omnibus (Council ST-9247-2026-INIT, 13 May 2026), because our first placement on the Union market is scheduled before 2 August 2026 and the Omnibus provides a four-month transitional period for providers in that position.
@@ -164,7 +174,7 @@ The [Content Policy](CONTENT_POLICY.md) prohibits:
 
 ### Disclosure Support
 
-C2PA content credentials provide the machine-readable AI disclosure mechanism anticipated by Article 50(2). Platforms and tools that support C2PA can automatically detect and label AI-generated content created with rAIdio.bot.
+AI-generated content carries two complementary machine-readable disclosure mechanisms anticipated by Article 50(2): C2PA content credentials (cryptographic metadata) and an inaudible in-signal neural watermark (see §3). Platforms and tools that support C2PA can automatically detect and label content created with rAIdio.bot; the in-signal watermark remains detectable even where the C2PA metadata has been stripped on re-upload or re-encoding.
 
 ---
 
