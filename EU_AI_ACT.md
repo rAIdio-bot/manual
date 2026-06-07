@@ -24,6 +24,7 @@ rAIdio.bot incorporates the following AI systems. All systems run entirely on th
 | BigVGAN v2 | Neural vocoder (waveform synthesis) | GAN | MIT | Component (not standalone) |
 | CAMPPlus | Speaker embedding / verification | CNN | MIT | Narrow-task |
 | RMVPE | Pitch extraction | CNN | MIT | Narrow-task |
+| SilentCipher | Neural audio watermarking (AI-provenance mark) | Encoder + message-decoder DNN (STFT-domain) | MIT | Narrow-task |
 
 **Classification notes:**
 
