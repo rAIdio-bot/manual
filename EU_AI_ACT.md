@@ -105,13 +105,11 @@ C2PA is the same open standard backed by Adobe, Microsoft, the BBC, and major di
 
 ### In-signal neural watermarking (multi-layer marking)
 
-> **Status in this build: temporarily disabled.** The in-signal neural watermark described in this section is not applied in the current release while a hardware-resource issue in its GPU-side processing is resolved. AI-content disclosure in this build is provided by the mandatory C2PA layer above, which marks **every** AI-generated output and satisfies Article 50(2)'s machine-readable-marking obligation on its own. The in-signal layer is planned to be re-enabled in a subsequent update. The remainder of this section describes that layer as designed.
-
-In addition to the C2PA metadata layer, rAIdio.bot embeds an inaudible neural watermark directly in the audio signal of AI-generated output (SilentCipher, an open-source method released by Sony under the MIT licence). Where a C2PA credential is metadata that can be stripped when a file is re-encoded or re-uploaded, the in-signal watermark is carried by the audio samples themselves and survives common transformations (format conversion, MP3/FLAC encoding, resampling).
+In addition to the C2PA metadata layer, every AI-generated audio output carries an inaudible neural watermark embedded directly in the audio signal (SilentCipher, an open-source method released by Sony under the MIT licence). Where a C2PA credential is metadata that can be stripped when a file is re-encoded or re-uploaded, the in-signal watermark is carried by the audio samples themselves and survives common transformations (format conversion, MP3/FLAC encoding, resampling).
 
 The two layers together — cryptographic C2PA credentials and an in-signal watermark — implement the multi-layer marking approach that the European Commission's Draft Code of Practice on AI transparency describes as best practice for Article 50(2), going beyond metadata alone.
 
-The watermark is applied only to AI-generated output (music and synthetic speech). Audio that the user imports, or that is otherwise not AI-generated, is never watermarked, so the mark is never falsely asserted on a user's own material. The file Properties view in the application displays C2PA status and, when the in-signal layer is active, watermark detection — so a user, or a downstream platform, can verify the provenance of any file.
+The watermark is applied only to AI-generated output (music and synthetic speech). Audio that the user imports, or that is otherwise not AI-generated, is not watermarked, so the mark is never falsely asserted on a user's own material. The file Properties view in the application displays both layers — C2PA status and watermark detection — so a user, or a downstream platform, can verify the provenance of any file.
 
 A neural watermark is a high-confidence indicator of AI origin, not a cryptographic proof: like all in-signal watermarks it can be degraded by deliberate adversarial processing or heavy neural recompression. It complements, and does not replace, the C2PA credential. Together they provide defence-in-depth for AI-content disclosure.
 
