@@ -349,11 +349,9 @@ If a long mixed-mode session ever stops working — usually after 30+ generation
 
 The Licenses page lists every piece of open-source software that rAIdio.bot uses, along with each one's license type. This is here for transparency: you can see exactly what powers the app.
 
-#### DLC
+#### The XL Model
 
-The About page shows which DLCs you have installed via Steam. The rAIdio.bot XL Model DLC is included free with rAIdio.bot — if your GPU has 24 GB or more of VRAM, Steam will offer to install it the first time you launch the game. Owning it unlocks the "XL High Quality" option in the Music tab.
-
-If you chose not to install the DLC during the Steam install, About will show "Not installed" with a "Get on Steam" button. Click it to open the DLC's Steam page where you can mark it for install.
+The rAIdio.bot XL Model is a higher-fidelity music model for GPUs with 24 GB or more of VRAM, included free with rAIdio.bot. To keep the base install smaller it ships as a separate, optional download (~10 GB). Install it from **Settings → AI Models**: find the XL Model in the list and click **Download**. Once it shows INSTALLED, the "XL High Quality" option unlocks in the Music tab; a **Remove** button frees the space again.
 
 #### Global Keyboard Shortcuts
 

@@ -1,6 +1,6 @@
 # End-User License Agreement
 
-**Last updated: June 3, 2026**
+**Last updated: July 2, 2026**
 
 This End-User License Agreement ("Agreement") is concluded between us, the Creative Mayhem UG as the Developer (the "Developer") and You ("You") as the licensee of our Software "rAIdio.bot" ("the Software").
 
@@ -10,9 +10,19 @@ This Agreement is concluded once You explicitly accept the Agreement during the 
 
 ## 2. License Grant
 
-2.1 The Developer grants You a limited, non-exclusive, non-transferable, revocable for cause, in particular in the event of a material breach of this Agreement, license to install and use the Software on devices You own or control, for personal and commercial music production purposes, subject to this Agreement.
+2.1 The Developer grants You a limited, non-exclusive, non-transferable, revocable for cause, in particular in the event of a material breach of this Agreement, license to install and use the Software on machines You own or control, for personal and commercial music production purposes, subject to this Agreement and to the activation limits in Section 2.3.
 
 2.2 No additional rights are granted.
+
+### 2.3 License Activation and Node-Locking
+
+2.3.1 Each license purchased includes five (5) activations. Activating the Software on a machine consumes one activation and binds the license to that machine ("node-locked"). Activation and this binding are verified locally on your machine and do not require an ongoing internet connection for normal use.
+
+2.3.2 Once all five activations have been used, the license is frozen: installations already activated under it continue to function and to receive updates, but no further machine may be activated under that license.
+
+2.3.3 If You require additional activations (for example, after replacing hardware), You may request a refreshed license at no charge for as long as the Developer continues to publish the Software. To do so, email support@rAIdio.bot with your license key and your order ID. Upon issuing a refreshed license, the Developer will expire the prior license; installations must then be re-activated under the refreshed license. The Developer recommends You retain your license key and order-confirmation email for this purpose.
+
+2.3.4 The activation mechanism transmits a machine identifier to the Developer's licensing service for the purpose of enforcing the activation limit; see the Privacy Policy for details.
 
 ## 3. Your Content
 
