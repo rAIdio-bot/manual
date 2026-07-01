@@ -1,8 +1,8 @@
 # rAIdio.bot — Third-Party Notices
 
-**Version 20260603**
+**Version 20260701**
 
-This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 998 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
+This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 1194 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
 
 ---
 
@@ -130,12 +130,21 @@ Full Apache 2.0 text: <https://www.apache.org/licenses/LICENSE-2.0>
 | zlib (statically linked in ffmpeg) | Zlib | [zlib.net](https://zlib.net) |
 | libsndfile (C library, bundled in soundfile wheel) | LGPL-2.1 | [memescreamer/libsndfile](https://github.com/memescreamer/libsndfile/tree/1.2.2) |
 | 7-Zip | LGPL-2.1 / BSD-3-Clause | [7-zip.org](https://www.7-zip.org) |
+| ICU4X internationalization crates (icu_*) | Unicode-3.0 | [unicode-org/icu4x](https://github.com/unicode-org/icu4x) |
+| Python Software Foundation family — matplotlib, typing_extensions, greenlet, regex, and others | PSF-2.0 / Python-2.0 / CNRI-Python | [python.org/license](https://docs.python.org/3/license.html) |
+| Two-clause BSD components — Pygments, and others | BSD-2-Clause | [opensource.org](https://opensource.org/license/bsd-2-clause) |
+| Pillow | HPND | [python-pillow.org](https://python-pillow.org) |
+| webpki-roots (Mozilla CA certificate set) | CDLA-Permissive-2.0 | [cdla.dev](https://cdla.dev/permissive-2-0/) |
+| libbz2-rs-sys | bzip2-1.0.6 | [crates.io/crates/libbz2-rs-sys](https://crates.io/crates/libbz2-rs-sys) |
+| Public-domain-equivalent dedications — filelock, ppmd-rust, and others | Unlicense / CC0-1.0 | [unlicense.org](https://unlicense.org) |
+
+Each component above is subject to its own license; the complete per-component list and verbatim license texts are in the SBOM (Settings > Licenses / the sbom repo).
 
 ---
 
 ## Full Component List
 
-The complete list of **998 components** with versions, licenses, and homepage URLs is available:
+The complete list of **1194 components** with versions, licenses, and homepage URLs is available:
 
 - **In-app**: Settings > Licenses
 - **Online (per release)**: [github.com/rAIdio-bot/sbom/releases](https://github.com/rAIdio-bot/sbom)
