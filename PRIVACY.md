@@ -53,7 +53,7 @@ Model files and updates obtained via Hugging Face are accessed anonymously where
 
 When you purchase rAIdio.bot, the purchase is processed by our e-commerce provider, **LemonSqueezy** (Lemon Squeezy, LLC), acting as merchant of record and as the **data controller** for your purchase. The name, email, and payment details you enter at checkout are held by LemonSqueezy under their privacy policy; we do not receive or store your payment details.
 
-To run a licensed copy, the Software must activate. Activation transmits your **license key** and a **machine identifier** (a value identifying your machine for activation counting) to enforce the license terms — five activations per license (see the EULA, Section 2.3). From this, **we retain only your order ID and your machine identifier**, used solely to enforce the activation limit. We do not retain your name, email, or payment information, and no audio, prompts, projects, or generated content is transmitted at any point. After activation, normal use of the Software is offline and does not contact the licensing service.
+To run a licensed copy, the Software must activate. Activation transmits your **license key** and a **machine identifier** (a value identifying your machine) to enforce the license terms and detect abuse such as unauthorized sharing of your license (see the EULA, Section 2.3). From this, **we retain only your order ID and your machine identifier**, used solely for license enforcement. We do not retain your name, email, or payment information, and no audio, prompts, projects, or generated content is transmitted at any point. After activation, normal use of the Software is offline and does not contact the licensing service.
 
 ## 7. Support
 
