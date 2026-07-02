@@ -88,6 +88,8 @@ You may not:
 
 8.2 In all other respects, the Developer's liability is excluded.
 
+8.3 Pre-release ("beta") builds — which You may opt into via the Software's update settings — are provided on an "as-is" basis for testing purposes and may be unstable or contain defects. To the extent permitted by applicable law, the Developer gives no warranty for pre-release builds; the mandatory statutory liability in Section 8.1 remains unaffected.
+
 ## 9. Termination
 
 9.1 This Agreement is effective until terminated. Either party may terminate this Agreement for good cause. In the event of a breach by You, termination by the Developer generally requires prior notice and a reasonable opportunity to cure, unless the breach is of such a nature that immediate termination is justified.
