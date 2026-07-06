@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated: July 2, 2026**
+**Last updated: July 6, 2026**
 
 We are pro-privacy. rAIdio.bot collects no information about you for analytics, tracking, advertising, or profiling — none. This policy exists to tell you exactly what that means and to document the narrow cases where third-party infrastructure is involved.
 
@@ -46,8 +46,8 @@ The Software receives updates as signed installers published to our public relea
 **Direct download (GitHub)**
 When the Software checks for or downloads an update, it requests a public release file from GitHub and sends no account, license, or identifying information to do so; we do not log who downloads updates. If you file a support issue or pull request on GitHub, we receive your GitHub username and the content of your submission, which we use solely to respond. GitHub's own privacy policy governs their platform.
 
-**Hugging Face**
-Model files and updates obtained via Hugging Face are accessed anonymously where Hugging Face permits anonymous access. We do not require you to authenticate with us to obtain these files. Hugging Face's own privacy policy governs their platform.
+**Weights CDN and Hugging Face**
+During first-time setup, model and runtime files are downloaded from our content-delivery network at hf.raidio.bot, served by Cloudflare R2. To deliver a file, Cloudflare processes your IP address and the name of the file requested; we operate this only to make downloads fast and do not use it to profile, track, or identify you. If the CDN is unavailable, the Software falls back to the same files hosted anonymously on Hugging Face (huggingface.co). In all cases the download is anonymous — no account, license, audio, prompts, or generated content is transmitted. Cloudflare's and Hugging Face's own privacy policies govern their platforms.
 
 ## 6. License Activation and Purchases
 
