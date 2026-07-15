@@ -15,6 +15,7 @@ rAIdio.bot incorporates the following AI systems. All systems run entirely on th
 |-----------|----------|--------------|---------|----------------|
 | ACE-Step 1.5 | Music generation from text | Diffusion transformer (3.5B / 5B params) | Apache 2.0 | Potentially GPAI |
 | ACE-Step 1.5 XL | Higher-quality music generation | Diffusion transformer (5B params) | Apache 2.0 | Potentially GPAI |
+| ACE-Step v1 3.5B | Studio-quality music generation from text (APG guidance) | Diffusion transformer (3.5B params) | Apache 2.0 | Potentially GPAI |
 | Qwen3-TTS | Text-to-speech synthesis | Autoregressive transformer (0.6B / 1.7B params) | Apache 2.0 | Narrow-task |
 | Seed-VC | Voice conversion | DiT + wavenet vocoder | MIT | Narrow-task |
 | RVC | Retrieval-based voice conversion | HuBERT + pitch extraction | MIT | Narrow-task |
@@ -28,7 +29,7 @@ rAIdio.bot incorporates the following AI systems. All systems run entirely on th
 
 **Classification notes:**
 
-- *ACE-Step 1.5 / XL* may meet the variety-of-tasks test for general-purpose AI (GPAI) under Article 3(63) of Regulation (EU) 2024/1689 because they can generate music across a wide range of styles and structures from free-form natural-language prompts. We do not independently verify whether the upstream training compute reached the 10²³ FLOP presumption threshold under Article 51(2); that determination rests with the upstream model provider (ACE-Studio / StepFun).
+- *ACE-Step 1.5 / XL / v1 3.5B* may meet the variety-of-tasks test for general-purpose AI (GPAI) under Article 3(63) of Regulation (EU) 2024/1689 because they can generate music across a wide range of styles and structures from free-form natural-language prompts. We do not independently verify whether the upstream training compute reached the 10²³ FLOP presumption threshold under Article 51(2); that determination rests with the upstream model provider (ACE-Studio / StepFun).
 - All other bundled models perform a single, narrowly defined task (transcription, separation, pitch extraction, voice conversion, etc.) and do not meet the variety-of-tasks test for GPAI.
 
 ### 1.1. System provider vs model provider

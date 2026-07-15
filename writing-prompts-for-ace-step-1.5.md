@@ -270,7 +270,7 @@ Past the three prompt fields and duration, ACE-Step exposes a set of technical p
 
 The values below are grounded in the official ACE-Step documentation[^1][^2][^3] and the community-validated recipe from the widely-cited Hugging Face tutorial by Rexx12[^4], which represents roughly six hours of systematic parameter testing and has become the de facto starting point for most ACE-Step setups.
 
-### Model Selection: Standard vs XL
+### Model Selection: Standard, XL, and SFT Studio
 
 rAIdio.bot ships two ACE-Step variants. You can switch between them in the advanced controls.
 
@@ -281,6 +281,13 @@ rAIdio.bot ships two ACE-Step variants. You can switch between them in the advan
 Practical workflow: write and iterate on Standard, then re-render the take you want on XL when you have settled on a prompt.
 
 One technical note: CFG Scale only behaves the way the rest of this guide describes on Standard (non-turbo) models. On XL Turbo the CFG control is present but has reduced effect — the model is trained differently. If you are tuning CFG, do it on Standard.
+
+**SFT Studio** is a third engine — the original ACE-Step 3.5B base model run through its official adaptive-guidance (APG) pipeline. It is slower, but gives a fuller, wider-stereo sound with stronger prompt and lyric adherence. Two things change when you pick it:
+
+- The **Sampler**, **Scheduler**, and **CFG Scale** controls do not apply. SFT runs a fixed studio recipe (adaptive guidance at strength 15, euler steps, mid-interval guidance). Everything else — tags, caption, lyrics, duration, seed, steps — works the same.
+- Use **more steps**: 50 to 60 is SFT's quality range, versus roughly 30 for Standard. It is non-distilled, so it needs the extra steps to fully resolve.
+
+Everything in this guide about tags, captions, and lyric structure applies equally to SFT — the prompt language is identical across all three models; SFT simply renders it with more care. And as with every ACE-Step model, **batch and cherry-pick**: the same prompt with a different seed gives a different song, so generate a few, keep the best, then lock that seed to extend or refine it.
 
 ### Key
 

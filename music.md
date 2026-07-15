@@ -68,7 +68,7 @@ Duration: 1 to 300 seconds. Stable ranges are 30 to 60 seconds and 2 to 4 minute
 
 BPM: 60 to 200 beats per minute by default. Reference values: ballad ~70, pop ~120, dance/EDM ~140, drum and bass ~170. Click the lock icon next to BPM to unlock the full range up to 300. Higher values can work for certain genres but may reduce generation quality, so the safe range is locked by default.
 
-Steps: 20 to 200 sampling steps. This is the quality vs speed tradeoff. 30 steps gives a quick preview. 65 is the sweet spot — clear output without overdoing it. Going much higher than 65 can actually introduce issues rather than improve quality. This applies to both the Standard and XL models.
+Steps: 20 to 200 sampling steps. This is the quality vs speed tradeoff. 30 steps gives a quick preview. For the Standard and XL models, 65 is the sweet spot — clear output without overdoing it, and going much higher can introduce issues rather than improve quality. SFT Studio is a non-distilled model and wants more: aim for 50 to 60 steps for its full quality.
 
 Key: Musical key (C through B, major or minor). The default is C major. Choose the key that matches the mood you want — minor keys sound darker, major keys brighter.
 
@@ -81,6 +81,14 @@ CFG Scale: Classifier-free guidance strength. Controls how closely the output fo
 Batch: Generate 1 to 8 variations with consecutive seeds. The model has inherent variance, so the same prompt can produce very different results. Batch generation lets you quickly explore variations and cherry-pick the best one. The others are deleted when you choose.
 
 Seed: Controls the random number generator. Same seed with the same settings always produces the same output. Change it to explore variations. -1 or 0 picks a random seed.
+
+### SFT Studio Model
+
+The Model selector offers three engines. **Standard** (the default) is the fast, distilled ACE-Step 1.5 and runs on any supported GPU. **XL High Quality** is the larger ACE-Step 1.5 XL model — sharper detail, needs 24 GB or more of VRAM. **SFT Studio** is the original ACE-Step 3.5B model driven through its official adaptive-guidance (APG) pipeline: it trades speed for fidelity — a fuller, wider-stereo sound with stronger prompt and lyric adherence — and needs about 8 GB of VRAM.
+
+SFT Studio uses its own studio-tuned settings. Where Standard and XL expose the Sampler, Scheduler, and CFG Scale controls, SFT runs a fixed high-quality recipe (adaptive guidance at strength 15, euler steps, mid-interval guidance), so those three controls have no effect when SFT is selected. What still shapes an SFT track: your Tags, Caption, Lyrics, Duration, Seed, and Steps.
+
+For SFT, push Steps toward 50 to 60 for full studio quality — it is a non-distilled model, so it needs more steps than Standard's ~30. SFT also produces an unusually wide stereo image; that is the model, not a fault. As with every output, each SFT track still receives its C2PA content credential and inaudible AI watermark. Install SFT Studio once from Settings → AI Models to unlock the option.
 
 ### Wizard (Prompt Builder)
 
@@ -160,7 +168,7 @@ Extracted stems may sound different from the original mix. This is normal: indiv
 The right-click menu also offers Detect Chords and Export MIDI for any audio file.
 
 ### Backend: ACE-Step 1.5
-Music generation is powered by ACE-Step 1.5, an open-source model (Apache 2.0 license) trained exclusively on licensed and public domain audio. The model runs locally on your GPU via ComfyUI. Two variants are available: HQ (streaming, requires more VRAM) and AIO (all-in-one, lower VRAM). rAIdio.bot selects the appropriate variant based on your GPU's available memory.
+Music generation is powered by ACE-Step 1.5, an open-source model (Apache 2.0 license) trained exclusively on licensed and public domain audio. The model runs locally on your GPU via ComfyUI. Two variants are available: HQ (streaming, requires more VRAM) and AIO (all-in-one, lower VRAM). rAIdio.bot selects the appropriate variant based on your GPU's available memory. The optional SFT Studio mode instead runs the original ACE-Step 3.5B base model (also Apache 2.0) through its official adaptive-guidance pipeline for higher-fidelity output.
 
 Generated audio is saved as lossless 16-bit WAV at 44.1 kHz — no lossy compression is applied. Audio is resampled to your device's native sample rate using a high-quality sinc interpolation filter for transparent playback.
 

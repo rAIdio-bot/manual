@@ -34,6 +34,12 @@ The rAIdio.bot XL Model is a higher-fidelity music model (the larger ACE-Step XL
 
 To install it, open **Settings → AI Models**. Each model is listed with its status (INSTALLED / NOT INSTALLED); click **Download** on the XL Model to fetch it. Once it shows INSTALLED, the "XL High Quality" option unlocks in the Music tab. A **Remove** button on the same card frees the space again.
 
+### The SFT Studio Model
+
+The rAIdio.bot SFT Studio Model is the original ACE-Step 3.5B base model, run through its official adaptive-guidance (APG) pipeline for higher-fidelity, wider-stereo music with stronger prompt and lyric adherence. It is included free and ships as a separate, optional download (about 8 GB) — it runs comfortably on GPUs with roughly 8 GB of VRAM or more.
+
+Install it from **Settings → AI Models** the same way as the XL Model: click **Download**, and once it shows INSTALLED the "SFT Studio" option unlocks in the Music tab's Model selector. Because SFT Studio is a non-distilled model, it renders more slowly than Standard and benefits from a higher step count (50 to 60).
+
 ### Global Keyboard Shortcuts
 
 These work everywhere — any tab, while focus is not in a text field.
