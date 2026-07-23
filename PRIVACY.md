@@ -65,7 +65,7 @@ If you contact us by email at info@rAIdio.bot, we receive only what you send and
 
 ## 8. Third-Party Services During Normal Operation
 
-During normal use the Software communicates only between its components running on your local machine, specifically between the application and its local backend on localhost. No network requests are made to external services during audio generation, mixing, voice processing, or file management.
+During normal use the Software communicates only between its components running on your local machine, specifically between the application and its local backend on localhost — including the optional on-device Prompt Enhancer, which runs a local AI inference server on 127.0.0.1 (loopback) that your prompts never leave. No network requests are made to external services during audio generation, mixing, voice processing, prompt enhancement, or file management.
 
 ## 9. Children
 

@@ -26,10 +26,12 @@ rAIdio.bot incorporates the following AI systems. All systems run entirely on th
 | CAMPPlus | Speaker embedding / verification | CNN | MIT | Narrow-task |
 | RMVPE | Pitch extraction | CNN | MIT | Narrow-task |
 | SilentCipher | Neural audio watermarking (AI-provenance mark) | Encoder + message-decoder DNN (STFT-domain) | MIT | Narrow-task |
+| Prompt Enhancer | On-device prompt rewriting (text-to-text writing assist) | Autoregressive transformer (1.5B params) | Apache 2.0 | Potentially GPAI |
 
 **Classification notes:**
 
 - *ACE-Step 1.5 / XL / v1 3.5B* may meet the variety-of-tasks test for general-purpose AI (GPAI) under Article 3(63) of Regulation (EU) 2024/1689 because they can generate music across a wide range of styles and structures from free-form natural-language prompts. We do not independently verify whether the upstream training compute reached the 10²³ FLOP presumption threshold under Article 51(2); that determination rests with the upstream model provider (ACE-Studio / StepFun).
+- *Prompt Enhancer (Qwen2.5-1.5B-Instruct)* is a general instruction-tuned language model and may meet the variety-of-tasks test for GPAI. rAIdio.bot constrains it to a single function — rewriting the user's rough prompt into a stronger music/voice generation prompt — via a fixed system prompt, and it runs entirely on-device under a bundled local inference server (no prompt or output leaves the machine). As with ACE-Step, any GPAI obligations rest with the upstream model provider (Alibaba Cloud / Qwen team), not Creative Mayhem UG (see §1.1); we do not independently verify whether upstream training compute reached the Article 51(2) systemic-risk threshold.
 - All other bundled models perform a single, narrowly defined task (transcription, separation, pitch extraction, voice conversion, etc.) and do not meet the variety-of-tasks test for GPAI.
 
 ### 1.1. System provider vs model provider
@@ -57,6 +59,7 @@ rAIdio.bot is not intended for either purpose. For systems where such generation
 
 - **Usage restrictions.** EULA §4 and Content Policy §3 and §6 prohibit generating sexual content involving minors, non-consensual sexual content, deepfakes intended to deceive or harm, and voice cloning without documented consent from the voice owner.
 - **Output controls.** Every audio output is signed with C2PA Content Credentials identifying it as AI-generated (see §3 below). Signing is mandatory and cannot be disabled.
+- **Prompt-level content gate (always-on).** Text prompts submitted to the on-device Prompt Enhancer are screened by a compiled-in gate that refuses any prompt pairing minor-referencing terms with sexual terms before the prompt reaches the model. The refusal cannot be disabled.
 - **Abuse detection (voice).** A cryptographic voice-consent verifier in the Voice panel checks every loaded `.pth` voice model against an embedded ES256 signature and the consent attestation recorded at training time. Unsigned or tampered models are flagged.
 - **Notice and action.** The in-app crash-and-bug submission flow includes explicit abuse-report routing to chris@neitzert.com.
 

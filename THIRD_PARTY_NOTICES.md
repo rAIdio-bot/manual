@@ -1,8 +1,8 @@
 # rAIdio.bot — Third-Party Notices
 
-**Version 20260701**
+**Version 20260723**
 
-This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 1194 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
+This product includes open-source software components. Each component is subject to its own license terms. The complete machine-readable Software Bill of Materials (SBOM) with all 1196 components is available in-app at **Settings > Licenses** and online at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom).
 
 ---
 
@@ -144,7 +144,7 @@ Each component above is subject to its own license; the complete per-component l
 
 ## Full Component List
 
-The complete list of **1194 components** with versions, licenses, and homepage URLs is available:
+The complete list of **1196 components** with versions, licenses, and homepage URLs is available:
 
 - **In-app**: Settings > Licenses
 - **Online (per release)**: [github.com/rAIdio-bot/sbom/releases](https://github.com/rAIdio-bot/sbom)
