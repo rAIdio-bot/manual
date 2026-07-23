@@ -311,9 +311,9 @@ Once you have run Sing Along on a track, the stems and lyrics are saved permanen
 
 Right-click any video file and choose **Generate Soundtrack**. rAIdio.bot analyzes the video's energy and mood, then opens a dialogue with an AI music director who suggests tags, BPM, and style. Describe the vibe you want, and the director adjusts the parameters. When you are happy, confirm and the Music tab opens pre-filled, ready to generate a matching soundtrack.
 
-Requires Ollama running locally with qwen2.5:3b. If Ollama is not available, the dialogue is skipped and you get direct analysis results.
+Requires Ollama running locally with qwen2.5:1.5b. If Ollama is not available, the dialogue is skipped and you get direct analysis results.
 
-Install Ollama from [ollama.com](https://ollama.com), then run `ollama pull qwen2.5:3b` once (~2 GB download).
+Install Ollama from [ollama.com](https://ollama.com), then run `ollama pull qwen2.5:1.5b` once (~1 GB download).
 
 *For advanced controls, open the `Play` section in the app (F1 → Settings → Manual → Advanced), or read [play.md](play.md).*
 

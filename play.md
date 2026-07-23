@@ -31,9 +31,9 @@ Once you have run Sing Along on a track, the stems and lyrics are saved permanen
 
 Right-click any video file and choose **Generate Soundtrack**. rAIdio.bot analyzes the video's energy and mood, then opens a dialogue with an AI music director who suggests tags, BPM, and style. Describe the vibe you want, and the director adjusts the parameters. When you are happy, confirm and the Music tab opens pre-filled, ready to generate a matching soundtrack.
 
-Requires Ollama running locally with qwen2.5:3b. If Ollama is not available, the dialogue is skipped and you get direct analysis results.
+Requires Ollama running locally with qwen2.5:1.5b. If Ollama is not available, the dialogue is skipped and you get direct analysis results.
 
-Install Ollama from [ollama.com](https://ollama.com), then run `ollama pull qwen2.5:3b` once (~2 GB download).
+Install Ollama from [ollama.com](https://ollama.com), then run `ollama pull qwen2.5:1.5b` once (~1 GB download).
 
 ## Advanced
 
@@ -88,11 +88,11 @@ The imported file is always the master clock. All secondary audio and lyrics syn
 Right-click a video file and choose Generate Soundtrack.
 
 1. Video Analysis: ffmpeg extracts a 30-second audio sample from the middle of the video. RMS energy and peak-based BPM are estimated.
-2. AI Dialogue: A local AI music director (Ollama qwen2.5:3b) suggests tags, BPM, key, and mood based on the analysis. You can refine the direction through conversation.
+2. AI Dialogue: A local AI music director (Ollama qwen2.5:1.5b) suggests tags, BPM, key, and mood based on the analysis. You can refine the direction through conversation.
 3. Generation: Confirmed parameters are loaded into the Music tab's T2A panel. Click Generate to create the soundtrack.
 
 If Ollama is not running, the dialogue is skipped and analysis results are used directly.
 
-Install Ollama from <https://ollama.com>, then run `ollama pull qwen2.5:3b` once (~2 GB download).
+Install Ollama from <https://ollama.com>, then run `ollama pull qwen2.5:1.5b` once (~1 GB download).
 
 BPM is clamped to 60-200 by default (locked). Unlock for higher values, but generation quality may decrease above 200 BPM.
