@@ -28,17 +28,9 @@ If a long mixed-mode session ever stops working — usually after 30+ generation
 
 The Licenses page lists every piece of open-source software that rAIdio.bot uses, along with each one's license type. This is here for transparency: you can see exactly what powers the app.
 
-### The XL Model
+### DLC
 
-The rAIdio.bot XL Model is a higher-fidelity music model (the larger ACE-Step XL model) for GPUs with 24 GB or more of VRAM. It is included free with rAIdio.bot but ships as a separate, optional download (~10 GB) to keep the base install smaller.
-
-To install it, open **Settings → AI Models**. Each model is listed with its status (INSTALLED / NOT INSTALLED); click **Download** on the XL Model to fetch it. Once it shows INSTALLED, the "XL High Quality" option unlocks in the Music tab. A **Remove** button on the same card frees the space again.
-
-### The SFT Studio Model
-
-The rAIdio.bot SFT Studio Model is the original ACE-Step 3.5B base model, run through its official adaptive-guidance (APG) pipeline for higher-fidelity, wider-stereo music with stronger prompt and lyric adherence. It is included free and ships as a separate, optional download (about 8 GB) — it runs comfortably on GPUs with roughly 8 GB of VRAM or more.
-
-Install it from **Settings → AI Models** the same way as the XL Model: click **Download**, and once it shows INSTALLED the "SFT Studio" option unlocks in the Music tab's Model selector. Because SFT Studio is a non-distilled model, it renders more slowly than Standard and benefits from a higher step count (50 to 60).
+The rAIdio.bot XL Model is included free with rAIdio.bot. If your GPU has 24 GB or more of VRAM, install it from **Settings → AI Models** to unlock the "XL High Quality" option in the Music tab. The SFT Studio Model is also included free — install it the same way to unlock the "SFT Studio" option: the original ACE-Step 3.5B model run through its adaptive-guidance pipeline for higher-fidelity, wider-stereo music, running on roughly 8 GB of VRAM or more. Any future add-ons will appear here.
 
 ### Global Keyboard Shortcuts
 
@@ -121,15 +113,15 @@ Both go through the same `restart_backend` Tauri command (shutdown + start), whi
 
 ### Uninstalling rAIdio.bot
 
-Uninstalling rAIdio.bot (via Windows **Settings → Apps → Installed apps**, or the bundled uninstaller) removes the application and the AI backend it shipped, but **leaves a few runtime files behind** that the app created during normal use (custom-node modifications, partially-downloaded archives, the ComfyUI runtime's `output/` / `input/` / `temp/` / `user/` directories, voice training intermediate files). The uninstaller removes what it installed; anything created at runtime stays.
+Uninstalling rAIdio.bot (via Windows **Settings → Apps**, or the bundled uninstaller) removes the application and the AI backend it shipped, but **leaves a few runtime files behind** that the app created during normal use (custom-node modifications, partially-downloaded archives, the ComfyUI runtime's `output/` / `input/` / `temp/` / `user/` directories, voice training intermediate files). The uninstaller only removes what it installed; anything created at runtime stays.
 
-After uninstalling, if you want to fully reclaim disk space, manually delete the install directory (typically):
+After uninstalling, if you want to fully reclaim disk space, delete the install folder (by default):
 
 ```
 C:\Program Files\rAIdio.bot\
 ```
 
-(adjust if you installed elsewhere, e.g. a per-user install under `%LOCALAPPDATA%\Programs\rAIdio.bot\`). This may free 1-25 GB depending on how much you used the app — most of it is the ComfyUI `Backend\` directory.
+(adjust the path if you installed rAIdio.bot elsewhere). This may free 1-25 GB depending on how much you used the app — most of it is the ComfyUI `Backend\` directory.
 
 **Your generated content survives the uninstall.** Your library, projects, playlists, saved voices, trained models, signing certificate, and settings live in:
 
@@ -141,14 +133,14 @@ This is intentional — reinstalling the app picks up where you left off. If you
 
 ### Windows SmartScreen on first launch
 
-On some Windows configurations, the first launch of a newly downloaded application triggers a "Windows protected your PC" SmartScreen warning. The rAIdio.bot installer and the application are code-signed by Creative Mayhem UG, but SmartScreen builds "reputation" over time — until a signing certificate has been seen on enough machines, the warning may still appear for a new publisher. Click "More info" and then "Run anyway". To verify your download, compare your installed `raidio-bot.exe` SHA-256 against the published hash for the current release at [`github.com/rAIdio-bot/sbom`](https://github.com/rAIdio-bot/sbom) — the recipe is in that repo's README under "Verify your install".
+rAIdio.bot is code-signed by Creative Mayhem UG, so Windows should launch it without warning. If a brand-new release ever shows a "Windows protected your PC" SmartScreen prompt while the signing certificate's reputation is still building, click "More info" then "Run anyway". You can confirm the app is genuine at any time: right-click `raidio-bot.exe` → **Properties → Digital Signatures** and check the signer is Creative Mayhem UG — the full recipe is in the [`github.com/rAIdio-bot/sbom`](https://github.com/rAIdio-bot/sbom) README under "Verify your install".
 
 ### Licenses (SBOM)
 The Licenses page is a Software Bill of Materials (SBOM) viewer. It lists every dependency: ComfyUI core, all custom nodes, Python packages, and their license types.
 
 Use the search field to filter by name or license type. The summary shows the total dependency count and a breakdown by license category.
 
-The full machine-readable SBOM (CycloneDX) is also published per release at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom) for OSPO ingestion.
+The full machine-readable SBOM (CycloneDX) is also published per release at [github.com/rAIdio-bot/sbom](https://github.com/rAIdio-bot/sbom) for OSPO ingestion. Each component carries a `com.raidio.ships-in` property (`installer-exe`, `backend-bundle`, or `xl-model`) so OSPO tooling can scope analysis to where a component actually ships.
 
 ### Global Keyboard Shortcuts
 
@@ -162,7 +154,3 @@ These shortcuts work from any tab:
 - F1: Help (opens the help panel for the current tab)
 - F2: Rename selected asset in the Assets panel
 - Enter: Open selected asset in the Assets panel
-
----
-
-© 2026 Creative Mayhem UG (haftungsbeschränkt). rAIdio.bot® is a registered trademark of Creative Mayhem UG. All other trademarks are property of their respective owners.

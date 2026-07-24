@@ -83,7 +83,6 @@ Batch: Generate 1 to 8 variations with consecutive seeds. The model has inherent
 Seed: Controls the random number generator. Same seed with the same settings always produces the same output. Change it to explore variations. -1 or 0 picks a random seed.
 
 ### SFT Studio Model
-
 The Model selector offers three engines. **Standard** (the default) is the fast, distilled ACE-Step 1.5 and runs on any supported GPU. **XL High Quality** is the larger ACE-Step 1.5 XL model — sharper detail, needs 24 GB or more of VRAM. **SFT Studio** is the original ACE-Step 3.5B model driven through its official adaptive-guidance (APG) pipeline: it trades speed for fidelity — a fuller, wider-stereo sound with stronger prompt and lyric adherence — and needs about 8 GB of VRAM.
 
 SFT Studio uses its own studio-tuned settings. Where Standard and XL expose the Sampler, Scheduler, and CFG Scale controls, SFT runs a fixed high-quality recipe (adaptive guidance at strength 15, euler steps, mid-interval guidance), so those three controls have no effect when SFT is selected. What still shapes an SFT track: your Tags, Caption, Lyrics, Duration, Seed, and Steps.
